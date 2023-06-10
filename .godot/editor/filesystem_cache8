@@ -1,11 +1,13 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1686426192
+::res://::1686428566
 README.md::TextFile::-1::1685637806::0::1::::<><>::
 ::res://assets/::1686426155
 ::res://assets/audio/::1686426149
 ::res://assets/sprites/::1686426155
-::res://scenes/::1686426227
-main.tscn::PackedScene::1796722140263207797::1686426227::0::1::::<><>::
+::res://scenes/::1686428563
+main.tscn::PackedScene::1796722140263207797::1686428563::0::1::::<><>::res://scenes/main.gd
+main.gd::GDScript::-1::1686428538::0::1::::<>Node2D<>::
 ::res://scenes/game/::1686426185
 ::res://scenes/menu/::1686426194
 ::res://scenes/_debug/::1686426179
+::res://src/::1686426268
