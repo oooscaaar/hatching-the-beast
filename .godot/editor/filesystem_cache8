@@ -1,4 +1,11 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1685638546
-icon.svg::CompressedTexture2D::126506166535508262::1685637928::1685637931::1::::<><>::
+::res://::1686426192
 README.md::TextFile::-1::1685637806::0::1::::<><>::
+::res://assets/::1686426155
+::res://assets/audio/::1686426149
+::res://assets/sprites/::1686426155
+::res://scenes/::1686426227
+main.tscn::PackedScene::1796722140263207797::1686426227::0::1::::<><>::
+::res://scenes/game/::1686426185
+::res://scenes/menu/::1686426194
+::res://scenes/_debug/::1686426179
