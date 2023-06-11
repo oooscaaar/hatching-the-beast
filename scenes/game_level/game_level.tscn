@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://jvt2cjhdwtie"]
+
+[ext_resource type="Texture2D" uid="uid://dnhnt3yqxcg5v" path="res://assets/sprites/UI/blue_windows.png" id="1_567fl"]
+
+[node name="GameLevel" type="Node2D"]
+
+[node name="Layout" type="CanvasLayer" parent="."]
+
+[node name="SolidWhiteBackground" type="ColorRect" parent="Layout"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlueWindows" type="TextureRect" parent="Layout"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_567fl")

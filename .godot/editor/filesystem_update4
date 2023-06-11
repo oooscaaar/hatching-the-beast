@@ -1,2 +1,4 @@
+res://scenes/game/game.tscn
+res://scenes/main.gd
 res://scenes/main.tscn
-res://scenes/menu/main_menu.tscn
+res://scenes/game_level/game_level.tscn
