@@ -1,22 +1,63 @@
-[gd_scene load_steps=2 format=3 uid="uid://jvt2cjhdwtie"]
+[gd_scene load_steps=8 format=3 uid="uid://jvt2cjhdwtie"]
 
+[ext_resource type="Script" path="res://scenes/game_level/ParallaxBackground.gd" id="1_4trtj"]
 [ext_resource type="Texture2D" uid="uid://dnhnt3yqxcg5v" path="res://assets/sprites/UI/blue_windows.png" id="1_567fl"]
+[ext_resource type="Texture2D" uid="uid://b1hr60rsx08sd" path="res://assets/sprites/game_level/supernova.png" id="1_hq8nw"]
+[ext_resource type="Texture2D" uid="uid://7gckmsoipeqn" path="res://assets/sprites/game_level/white_background_mask.png" id="1_pem8y"]
+[ext_resource type="Texture2D" uid="uid://b43e2fbcj4sxm" path="res://assets/sprites/game_level/meteors.png" id="2_cmlo8"]
+[ext_resource type="Script" path="res://scenes/game_level/debug_fps.gd" id="5_ifsf1"]
+[ext_resource type="FontFile" uid="uid://cwham61kltkv6" path="res://assets/fonts/jgs5.ttf" id="6_1qysu"]
 
 [node name="GameLevel" type="Node2D"]
+metadata/_edit_horizontal_guides_ = []
 
 [node name="Layout" type="CanvasLayer" parent="."]
 
-[node name="SolidWhiteBackground" type="ColorRect" parent="Layout"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="WhiteBgMask" type="TextureRect" parent="Layout"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_pem8y")
 
-[node name="BlueWindows" type="TextureRect" parent="Layout"]
+[node name="BlueWindowsFrames" type="TextureRect" parent="Layout"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_567fl")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Layout"]
+script = ExtResource("1_4trtj")
+
+[node name="Supernovas" type="ParallaxLayer" parent="Layout/ParallaxBackground"]
+motion_scale = Vector2(0.3, 3)
+motion_mirroring = Vector2(554, 2.08165e-12)
+
+[node name="SupernovasTexture" type="TextureRect" parent="Layout/ParallaxBackground/Supernovas"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_hq8nw")
+
+[node name="Meteors" type="ParallaxLayer" parent="Layout/ParallaxBackground"]
+motion_scale = Vector2(0.7, 2.334)
+motion_mirroring = Vector2(554, 2.08165e-12)
+
+[node name="MeteorsSprite" type="Sprite2D" parent="Layout/ParallaxBackground/Meteors"]
+texture = ExtResource("2_cmlo8")
+centered = false
+offset = Vector2(2.08165e-12, 50)
+
+[node name="MarginContainer" type="MarginContainer" parent="Layout"]
+offset_left = 361.0
+offset_top = 12.0
+offset_right = 466.0
+offset_bottom = 37.0
+
+[node name="debug_fps" type="Label" parent="Layout/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(1, 1, 0.333333, 1)
+theme_override_fonts/font = ExtResource("6_1qysu")
+text = "?"
+script = ExtResource("5_ifsf1")

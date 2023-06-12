@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4tlfntw8xt35"
-path="res://.godot/imported/platforms.png-a375ae8979c5f93893323ce0b16a216c.ctex"
+uid="uid://7gckmsoipeqn"
+path="res://.godot/imported/white_background_mask.png-d20d7f2c7c0d430a883a9e2fc04b3125.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/raw/platforms.png"
-dest_files=["res://.godot/imported/platforms.png-a375ae8979c5f93893323ce0b16a216c.ctex"]
+source_file="res://assets/sprites/game_level/white_background_mask.png"
+dest_files=["res://.godot/imported/white_background_mask.png-d20d7f2c7c0d430a883a9e2fc04b3125.ctex"]
 
 [params]
 
