@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bdxpywrxl46kr"]
+[gd_scene load_steps=17 format=3 uid="uid://poh36d131mig"]
 
 [ext_resource type="Script" path="res://scenes/game_level/ParallaxBackground.gd" id="1_4trtj"]
 [ext_resource type="Texture2D" uid="uid://dtl3x44uue3l0" path="res://assets/sprites/game_level/egg_pink_background.png" id="1_f343s"]
@@ -8,14 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://dnhnt3yqxcg5v" path="res://assets/sprites/game_level/blue_windows.png" id="2_7toak"]
 [ext_resource type="Texture2D" uid="uid://0jeab8nnr1tr" path="res://assets/sprites/game_level/green_button_pressed_state..png" id="2_ce3c8"]
 [ext_resource type="Texture2D" uid="uid://b43e2fbcj4sxm" path="res://assets/sprites/game_level/meteors.png" id="2_cmlo8"]
-[ext_resource type="Texture2D" uid="uid://dgpnlaqm3rjva" path="res://assets/sprites/game_level/clouds.png" id="5_fw57r"]
-[ext_resource type="Texture2D" uid="uid://cjrtjtgb1ox5c" path="res://assets/sprites/game_level/big_meteors.png" id="5_h5xsg"]
-[ext_resource type="Texture2D" uid="uid://127mx5ynnoo3" path="res://assets/sprites/game_level/mountain.png" id="6_ci5gk"]
-[ext_resource type="Texture2D" uid="uid://boy1m7wfubb06" path="res://assets/sprites/game_level/egg_spritesheet.png" id="8_82pd0"]
+[ext_resource type="Script" path="res://scenes/game_level/debug_fps.gd" id="5_ifsf1"]
+[ext_resource type="FontFile" uid="uid://cwham61kltkv6" path="res://assets/fonts/jgs5.ttf" id="6_1qysu"]
 [ext_resource type="Texture2D" uid="uid://csy3bdpfxirdu" path="res://assets/sprites/game_level/stars_spritesheet.png" id="8_j5nwq"]
 [ext_resource type="Texture2D" uid="uid://djv5xueamtxro" path="res://assets/sprites/game_level/green_button_hover_state_2.png" id="10_5bk7u"]
-[ext_resource type="Script" path="res://scenes/game_level/_debug_fps.gd" id="12_oypjy"]
-[ext_resource type="FontFile" uid="uid://cpm2pfxn0c44x" path="res://assets/fonts/VecTerminus12Medium.otf" id="13_cb8bg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s8huq"]
 atlas = ExtResource("8_j5nwq")
@@ -43,35 +39,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"shine",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x5y7j"]
-atlas = ExtResource("8_82pd0")
-region = Rect2(0, 0, 71, 90)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6dwiy"]
-atlas = ExtResource("8_82pd0")
-region = Rect2(71, 0, 71, 90)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_chyb0"]
-atlas = ExtResource("8_82pd0")
-region = Rect2(142, 0, 71, 90)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_sj8ar"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x5y7j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6dwiy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_chyb0")
-}],
-"loop": true,
-"name": &"move",
 "speed": 5.0
 }]
 
@@ -110,35 +77,8 @@ motion_mirroring = Vector2(554, 2.08165e-12)
 [node name="MeteorsSprite" type="Sprite2D" parent="ParallaxBackground/Meteors"]
 texture = ExtResource("2_cmlo8")
 centered = false
-offset = Vector2(2.08165e-12, 40)
+offset = Vector2(2.08165e-12, 50)
 metadata/_edit_lock_ = true
-
-[node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.1, 1)
-motion_mirroring = Vector2(343, 2.08165e-12)
-
-[node name="CloudsSprite" type="Sprite2D" parent="ParallaxBackground/Clouds"]
-texture = ExtResource("5_fw57r")
-centered = false
-offset = Vector2(2.08165e-12, 165)
-
-[node name="Mountains" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.2, 0.2)
-motion_mirroring = Vector2(205, 2.08165e-12)
-
-[node name="MountainsSprite" type="Sprite2D" parent="ParallaxBackground/Mountains"]
-texture = ExtResource("6_ci5gk")
-centered = false
-offset = Vector2(2.08165e-12, 204)
-
-[node name="BigMeteors" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(-0.5, 2.08165e-12)
-motion_mirroring = Vector2(390, 2.08165e-12)
-
-[node name="BigMeteorsSprite" type="Sprite2D" parent="ParallaxBackground/BigMeteors"]
-texture = ExtResource("5_h5xsg")
-centered = false
-offset = Vector2(2.08165e-12, 220)
 
 [node name="Layout" type="CanvasLayer" parent="."]
 
@@ -168,13 +108,6 @@ mouse_filter = 2
 texture = ExtResource("2_7toak")
 metadata/_edit_lock_ = true
 
-[node name="AnimatedEgg" type="AnimatedSprite2D" parent="Layout"]
-position = Vector2(378, 38)
-sprite_frames = SubResource("SpriteFrames_sj8ar")
-animation = &"move"
-autoplay = "move"
-centered = false
-
 [node name="BtnMarginContainer" type="MarginContainer" parent="Layout"]
 offset_left = 360.0
 offset_top = 165.0
@@ -196,29 +129,18 @@ texture_pressed = ExtResource("2_ce3c8")
 texture_hover = ExtResource("10_5bk7u")
 
 [node name="_FPSMarginContainer" type="MarginContainer" parent="Layout"]
-offset_left = 20.0
-offset_top = 245.0
-offset_right = 53.0
-offset_bottom = 260.0
+offset_left = 361.0
+offset_top = 12.0
+offset_right = 466.0
+offset_bottom = 37.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Layout/_FPSMarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="FPS" type="Label" parent="Layout/_FPSMarginContainer/HBoxContainer"]
+[node name="_debug_fps" type="Label" parent="Layout/_FPSMarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 8
 theme_override_colors/font_color = Color(1, 1, 0.333333, 1)
-theme_override_fonts/font = ExtResource("13_cb8bg")
-theme_override_font_sizes/font_size = 12
-text = "FPS"
+theme_override_fonts/font = ExtResource("6_1qysu")
+text = "FPS:"
+script = ExtResource("5_ifsf1")
 
-[node name="_debug_fps" type="Label" parent="Layout/_FPSMarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-theme_override_colors/font_color = Color(1, 1, 0.333333, 1)
-theme_override_fonts/font = ExtResource("13_cb8bg")
-theme_override_font_sizes/font_size = 12
-script = ExtResource("12_oypjy")
-
-[connection signal="pressed" from="Layout/BtnMarginContainer/GreenBtn" to="Layout/_FPSMarginContainer/HBoxContainer/_debug_fps" method="_on_green_btn_pressed"]
+[connection signal="pressed" from="Layout/BtnMarginContainer/GreenBtn" to="Layout/_FPSMarginContainer/_debug_fps" method="_on_green_btn_pressed"]
