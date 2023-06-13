@@ -43,7 +43,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"shine",
-"speed": 5.0
+"speed": 4.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x5y7j"]
@@ -82,7 +82,7 @@ metadata/_edit_horizontal_guides_ = []
 script = ExtResource("1_4trtj")
 
 [node name="Supernovas" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.1, 0.333)
+motion_scale = Vector2(2.08165e-12, 2.08165e-12)
 motion_mirroring = Vector2(554, 2.08165e-12)
 
 [node name="SupernovasTexture" type="TextureRect" parent="ParallaxBackground/Supernovas"]
@@ -96,6 +96,7 @@ motion_scale = Vector2(2.08165e-12, 2.08165e-12)
 motion_mirroring = Vector2(315, 2.08165e-12)
 
 [node name="AnimatedStars" type="AnimatedSprite2D" parent="ParallaxBackground/Stars"]
+modulate = Color(1, 1, 1, 0.784314)
 sprite_frames = SubResource("SpriteFrames_44wja")
 animation = &"shine"
 autoplay = "shine"
@@ -105,12 +106,12 @@ metadata/_edit_lock_ = true
 
 [node name="Meteors" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.5, 0.714)
-motion_mirroring = Vector2(554, 2.08165e-12)
+motion_mirroring = Vector2(437, 2.08165e-12)
 
 [node name="MeteorsSprite" type="Sprite2D" parent="ParallaxBackground/Meteors"]
 texture = ExtResource("2_cmlo8")
 centered = false
-offset = Vector2(2.08165e-12, 40)
+offset = Vector2(2.08165e-12, 30)
 metadata/_edit_lock_ = true
 
 [node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -138,7 +139,7 @@ motion_mirroring = Vector2(390, 2.08165e-12)
 [node name="BigMeteorsSprite" type="Sprite2D" parent="ParallaxBackground/BigMeteors"]
 texture = ExtResource("5_h5xsg")
 centered = false
-offset = Vector2(2.08165e-12, 220)
+offset = Vector2(2.08165e-12, 200)
 
 [node name="Layout" type="CanvasLayer" parent="."]
 
