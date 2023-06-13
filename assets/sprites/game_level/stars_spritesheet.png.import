@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hle85iijjtuo"
-path="res://.godot/imported/platforms.png-4f7701b7fe2e395fc5aff2bcf5a21170.ctex"
+uid="uid://csy3bdpfxirdu"
+path="res://.godot/imported/stars_spritesheet.png-c950f89478363e18d5b199acdb991ed6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/UI/platforms.png"
-dest_files=["res://.godot/imported/platforms.png-4f7701b7fe2e395fc5aff2bcf5a21170.ctex"]
+source_file="res://assets/sprites/game_level/stars_spritesheet.png"
+dest_files=["res://.godot/imported/stars_spritesheet.png-c950f89478363e18d5b199acdb991ed6.ctex"]
 
 [params]
 

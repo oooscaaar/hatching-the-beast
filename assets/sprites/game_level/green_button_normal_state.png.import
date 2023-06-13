@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnhnt3yqxcg5v"
-path="res://.godot/imported/blue_windows.png-451a80cd157437c9e033535fd06041c8.ctex"
+uid="uid://ckpmjpk4qk4ww"
+path="res://.godot/imported/green_button_normal_state.png-b497a85ec46092c81038955ad1a5952d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/UI/blue_windows.png"
-dest_files=["res://.godot/imported/blue_windows.png-451a80cd157437c9e033535fd06041c8.ctex"]
+source_file="res://assets/sprites/game_level/green_button_normal_state.png"
+dest_files=["res://.godot/imported/green_button_normal_state.png-b497a85ec46092c81038955ad1a5952d.ctex"]
 
 [params]
 
