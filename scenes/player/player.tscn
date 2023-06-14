@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://2ffuut8nc8ns"]
+
+[ext_resource type="Texture2D" uid="uid://cle40yoc1ffyj" path="res://assets/sprites/game_level/player_placeholder_texture.png" id="1_aewb1"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_qqc8j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4cl24"]
+size = Vector2(15, 47)
+
+[node name="Player" type="RigidBody2D"]
+lock_rotation = true
+script = ExtResource("1_qqc8j")
+
+[node name="PlayerTexture" type="Sprite2D" parent="."]
+texture = ExtResource("1_aewb1")
+centered = false
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(9.5, 24)
+shape = SubResource("RectangleShape2D_4cl24")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="GroundRaycast" type="RayCast2D" parent="."]
+position = Vector2(4, 23)
+target_position = Vector2(0, 32)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bdxpywrxl46kr"]
+[gd_scene load_steps=29 format=3 uid="uid://bdxpywrxl46kr"]
 
 [ext_resource type="Script" path="res://scenes/game_level/ParallaxBackground.gd" id="1_4trtj"]
 [ext_resource type="Texture2D" uid="uid://dtl3x44uue3l0" path="res://assets/sprites/game_level/egg_pink_background.png" id="1_f343s"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://127mx5ynnoo3" path="res://assets/sprites/game_level/mountain.png" id="6_ci5gk"]
 [ext_resource type="Texture2D" uid="uid://boy1m7wfubb06" path="res://assets/sprites/game_level/egg_spritesheet.png" id="8_82pd0"]
 [ext_resource type="Texture2D" uid="uid://csy3bdpfxirdu" path="res://assets/sprites/game_level/stars_spritesheet.png" id="8_j5nwq"]
+[ext_resource type="PackedScene" uid="uid://2ffuut8nc8ns" path="res://scenes/player/player.tscn" id="8_u6783"]
+[ext_resource type="Texture2D" uid="uid://dh2l4wg2bwp5q" path="res://assets/sprites/game_level/platforms_spritesheet.png" id="8_w383o"]
 [ext_resource type="Texture2D" uid="uid://djv5xueamtxro" path="res://assets/sprites/game_level/green_button_hover_state_2.png" id="10_5bk7u"]
 [ext_resource type="Script" path="res://scenes/game_level/_debug_fps.gd" id="12_oypjy"]
 [ext_resource type="FontFile" uid="uid://cpm2pfxn0c44x" path="res://assets/fonts/VecTerminus12Medium.otf" id="13_cb8bg"]
@@ -46,6 +48,77 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c8sus"]
+texture = ExtResource("8_w383o")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:2/0/physics_layer_0/angular_velocity = 0.0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:3/0/physics_layer_0/angular_velocity = 0.0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0 = 0
+3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:3/0/physics_layer_0/angular_velocity = 0.0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_23aul"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_c8sus")
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_x5y7j"]
 atlas = ExtResource("8_82pd0")
 region = Rect2(0, 0, 71, 90)
@@ -77,6 +150,9 @@ animations = [{
 
 [node name="GameLevel" type="Node2D"]
 metadata/_edit_horizontal_guides_ = []
+
+[node name="Player" parent="." instance=ExtResource("8_u6783")]
+position = Vector2(29, 145)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("1_4trtj")
@@ -111,7 +187,7 @@ motion_mirroring = Vector2(437, 2.08165e-12)
 [node name="MeteorsSprite" type="Sprite2D" parent="ParallaxBackground/Meteors"]
 texture = ExtResource("2_cmlo8")
 centered = false
-offset = Vector2(2.08165e-12, 30)
+offset = Vector2(0, 50)
 metadata/_edit_lock_ = true
 
 [node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -122,6 +198,7 @@ motion_mirroring = Vector2(343, 2.08165e-12)
 texture = ExtResource("5_fw57r")
 centered = false
 offset = Vector2(2.08165e-12, 165)
+metadata/_edit_lock_ = true
 
 [node name="Mountains" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.2, 0.2)
@@ -134,7 +211,12 @@ offset = Vector2(2.08165e-12, 204)
 
 [node name="Platforms" type="ParallaxLayer" parent="ParallaxBackground"]
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Platforms"]
+[node name="TileMap" type="TileMap" parent="ParallaxBackground/Platforms"]
+tile_set = SubResource("TileSet_23aul")
+format = 2
+layer_0/tile_data = PackedInt32Array(720906, 5, 0, 655372, 3, 0, 655373, 65539, 0, 655374, 131075, 0, 655375, 196611, 0, 589841, 131079, 1, 458771, 131077, 0, 786435, 131072, 2, 720904, 3, 0, 393237, 3, 0, 393238, 131079, 1, 393239, 131072, 2, 393240, 196608, 2, 327705, 65536, 0, 458779, 65536, 0, 327708, 65536, 0, 131100, 0, 2, 131101, 65536, 2, 131102, 131072, 2, 131103, 196608, 2, 262176, 0, 3, 262177, 65536, 3, 262178, 131072, 3, 262179, 196608, 3, 720932, 0, 3, 720933, 65536, 3, 720934, 131072, 3, 720935, 196608, 3, 458789, 131072, 1, 262186, 131072, 1, 786434, 65536, 2, 786433, 0, 2, 589842, 196611, 0, 458772, 196613, 0, 458773, 131079, 1, 458774, 131075, 0, 786436, 196608, 2, 786438, 131077, 0, 786437, 65541, 0, 851969, 6, 1, 851970, 65542, 1, 851971, 131075, 0, 851972, 196611, 0, 786439, 196613, 0, 786440, 131077, 0, 786441, 196613, 0, 720907, 65541, 0, 720908, 7, 2, 720909, 196615, 2, 589838, 5, 0, 589839, 131079, 1, 589840, 131077, 0, 458769, 5, 0, 458770, 65541, 0, 327701, 5, 0, 327702, 196613, 0, 720901, 7, 0, 851975, 7, 3, 851976, 65543, 3, 851977, 131079, 3, 851978, 0, 3, 524306, 131079, 1, 393236, 131079, 1, 720902, 0, 2, 720903, 196608, 2, 851979, 65536, 3, 851980, 131072, 3, 851981, 65536, 3, 851982, 131072, 3, 851983, 65536, 2, 851984, 131072, 2, 851985, 196608, 2, 786451, 0, 0, 720916, 0, 0, 655381, 0, 0, 589847, 131072, 0, 851993, 0, 2, 786459, 196608, 2)
+
+[node name="PlayerParallax" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="BigMeteors" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(-0.5, 2.08165e-12)
@@ -143,7 +225,7 @@ motion_mirroring = Vector2(390, 2.08165e-12)
 [node name="BigMeteorsSprite" type="Sprite2D" parent="ParallaxBackground/BigMeteors"]
 texture = ExtResource("5_h5xsg")
 centered = false
-offset = Vector2(0, 220)
+offset = Vector2(0, 230)
 
 [node name="Layout" type="CanvasLayer" parent="."]
 
