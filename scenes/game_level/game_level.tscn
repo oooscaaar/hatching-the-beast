@@ -1,29 +1,23 @@
-[gd_scene load_steps=33 format=3 uid="uid://bdxpywrxl46kr"]
+[gd_scene load_steps=29 format=3 uid="uid://bdxpywrxl46kr"]
 
 [ext_resource type="Script" path="res://scenes/game_level/ParallaxBackground.gd" id="1_4trtj"]
 [ext_resource type="Texture2D" uid="uid://dtl3x44uue3l0" path="res://assets/sprites/game_level/egg_pink_background.png" id="1_f343s"]
 [ext_resource type="Texture2D" uid="uid://b1hr60rsx08sd" path="res://assets/sprites/game_level/supernova.png" id="1_hq8nw"]
 [ext_resource type="Texture2D" uid="uid://ckpmjpk4qk4ww" path="res://assets/sprites/game_level/green_button_normal_state.png" id="1_irt6n"]
-[ext_resource type="Script" path="res://scenes/game_level/game_level.gd" id="1_mfbo6"]
 [ext_resource type="Texture2D" uid="uid://7gckmsoipeqn" path="res://assets/sprites/game_level/white_background_mask.png" id="1_pem8y"]
 [ext_resource type="Texture2D" uid="uid://dnhnt3yqxcg5v" path="res://assets/sprites/game_level/blue_windows.png" id="2_7toak"]
 [ext_resource type="Texture2D" uid="uid://b43e2fbcj4sxm" path="res://assets/sprites/game_level/meteors.png" id="2_cmlo8"]
 [ext_resource type="Texture2D" uid="uid://dgpnlaqm3rjva" path="res://assets/sprites/game_level/clouds.png" id="5_fw57r"]
 [ext_resource type="Texture2D" uid="uid://cjrtjtgb1ox5c" path="res://assets/sprites/game_level/big_meteors.png" id="5_h5xsg"]
 [ext_resource type="Texture2D" uid="uid://127mx5ynnoo3" path="res://assets/sprites/game_level/mountain.png" id="6_ci5gk"]
-[ext_resource type="Script" path="res://scenes/game_level/Platforms.gd" id="7_cps7o"]
 [ext_resource type="Texture2D" uid="uid://boy1m7wfubb06" path="res://assets/sprites/game_level/egg_spritesheet.png" id="8_82pd0"]
 [ext_resource type="Texture2D" uid="uid://csy3bdpfxirdu" path="res://assets/sprites/game_level/stars_spritesheet.png" id="8_j5nwq"]
-[ext_resource type="Texture2D" uid="uid://c7ia5pln71nle" path="res://assets/sprites/game_level/platforms_spritesheet.png" id="8_w383o"]
-[ext_resource type="PackedScene" uid="uid://bupebol1ecuwl" path="res://scenes/player/player_character_body_2d.tscn" id="10_bx8hh"]
+[ext_resource type="Texture2D" uid="uid://dr0yfiuf5ek52" path="res://assets/sprites/game_level/platforms_spritesheet.png" id="8_w383o"]
+[ext_resource type="PackedScene" uid="uid://djoicgxpmb0yy" path="res://scenes/player/player_character_body_2d.tscn" id="10_bx8hh"]
 [ext_resource type="Script" path="res://scenes/game_level/_debug_fps.gd" id="12_oypjy"]
 [ext_resource type="FontFile" uid="uid://cpm2pfxn0c44x" path="res://assets/fonts/VecTerminus12Medium.otf" id="13_cb8bg"]
-[ext_resource type="Texture2D" uid="uid://0jeab8nnr1tr" path="res://assets/sprites/game_level/green_button_pressed_state.png" id="15_vo4a8"]
+[ext_resource type="Texture2D" uid="uid://dq3eeuloya28g" path="res://assets/sprites/game_level/green_button_pressed_state.png" id="15_vo4a8"]
 [ext_resource type="Texture2D" uid="uid://bm1k7lljykjxc" path="res://assets/sprites/game_level/green_button_hover_state.png" id="16_txw1s"]
-[ext_resource type="Script" path="res://scenes/game_level/Area2Dc.gd" id="21_gsfkf"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dc6bo"]
-size = Vector2(13, 237)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s8huq"]
 atlas = ExtResource("8_j5nwq")
@@ -156,15 +150,7 @@ animations = [{
 }]
 
 [node name="GameLevel" type="Node2D"]
-script = ExtResource("1_mfbo6")
 metadata/_edit_horizontal_guides_ = [116.0, 178.0, 240.0]
-
-[node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("21_gsfkf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(318, 122)
-shape = SubResource("RectangleShape2D_dc6bo")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("1_4trtj")
@@ -222,8 +208,8 @@ centered = false
 offset = Vector2(2.08165e-12, 204)
 
 [node name="Platforms" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 motion_scale = Vector2(2, 1)
-script = ExtResource("7_cps7o")
 
 [node name="Plain" type="TileMap" parent="ParallaxBackground/Platforms"]
 tile_set = SubResource("TileSet_23aul")
@@ -324,8 +310,4 @@ theme_override_fonts/font = ExtResource("13_cb8bg")
 theme_override_font_sizes/font_size = 12
 script = ExtResource("12_oypjy")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="pressed" from="Layout/BtnMarginContainer/GreenBtn" to="Layout/_FPSMarginContainer/HBoxContainer/_debug_fps" method="_on_green_btn_pressed"]

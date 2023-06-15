@@ -10,8 +10,3 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	scroll_offset.x -= speed * delta
-
-
-
-func _on_world_enter_body_entered(body: Node2D) -> void:
-		print("Signal received")
