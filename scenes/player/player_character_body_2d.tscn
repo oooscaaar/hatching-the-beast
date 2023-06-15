@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cwlqhieswhqn6" path="res://assets/sprites/game_level/player_run_spritesheet.png" id="4_dpcr1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m863r"]
-size = Vector2(31, 29)
+size = Vector2(19, 29)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_41xxt"]
 atlas = ExtResource("2_xeu60")
@@ -128,9 +128,10 @@ animations = [{
 script = ExtResource("1_qsner")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0.5)
+position = Vector2(-1.5, 0.5)
 shape = SubResource("RectangleShape2D_m863r")
 
 [node name="AnimatedPlayer" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_urkum")
 animation = &"run"
+frame = 1

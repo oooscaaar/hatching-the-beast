@@ -1,15 +1,17 @@
-[gd_scene load_steps=29 format=3 uid="uid://bdxpywrxl46kr"]
+[gd_scene load_steps=33 format=3 uid="uid://bdxpywrxl46kr"]
 
 [ext_resource type="Script" path="res://scenes/game_level/ParallaxBackground.gd" id="1_4trtj"]
 [ext_resource type="Texture2D" uid="uid://dtl3x44uue3l0" path="res://assets/sprites/game_level/egg_pink_background.png" id="1_f343s"]
 [ext_resource type="Texture2D" uid="uid://b1hr60rsx08sd" path="res://assets/sprites/game_level/supernova.png" id="1_hq8nw"]
 [ext_resource type="Texture2D" uid="uid://ckpmjpk4qk4ww" path="res://assets/sprites/game_level/green_button_normal_state.png" id="1_irt6n"]
+[ext_resource type="Script" path="res://scenes/game_level/game_level.gd" id="1_mfbo6"]
 [ext_resource type="Texture2D" uid="uid://7gckmsoipeqn" path="res://assets/sprites/game_level/white_background_mask.png" id="1_pem8y"]
 [ext_resource type="Texture2D" uid="uid://dnhnt3yqxcg5v" path="res://assets/sprites/game_level/blue_windows.png" id="2_7toak"]
 [ext_resource type="Texture2D" uid="uid://b43e2fbcj4sxm" path="res://assets/sprites/game_level/meteors.png" id="2_cmlo8"]
 [ext_resource type="Texture2D" uid="uid://dgpnlaqm3rjva" path="res://assets/sprites/game_level/clouds.png" id="5_fw57r"]
 [ext_resource type="Texture2D" uid="uid://cjrtjtgb1ox5c" path="res://assets/sprites/game_level/big_meteors.png" id="5_h5xsg"]
 [ext_resource type="Texture2D" uid="uid://127mx5ynnoo3" path="res://assets/sprites/game_level/mountain.png" id="6_ci5gk"]
+[ext_resource type="Script" path="res://scenes/game_level/Platforms.gd" id="7_cps7o"]
 [ext_resource type="Texture2D" uid="uid://boy1m7wfubb06" path="res://assets/sprites/game_level/egg_spritesheet.png" id="8_82pd0"]
 [ext_resource type="Texture2D" uid="uid://csy3bdpfxirdu" path="res://assets/sprites/game_level/stars_spritesheet.png" id="8_j5nwq"]
 [ext_resource type="Texture2D" uid="uid://c7ia5pln71nle" path="res://assets/sprites/game_level/platforms_spritesheet.png" id="8_w383o"]
@@ -18,6 +20,10 @@
 [ext_resource type="FontFile" uid="uid://cpm2pfxn0c44x" path="res://assets/fonts/VecTerminus12Medium.otf" id="13_cb8bg"]
 [ext_resource type="Texture2D" uid="uid://0jeab8nnr1tr" path="res://assets/sprites/game_level/green_button_pressed_state.png" id="15_vo4a8"]
 [ext_resource type="Texture2D" uid="uid://bm1k7lljykjxc" path="res://assets/sprites/game_level/green_button_hover_state.png" id="16_txw1s"]
+[ext_resource type="Script" path="res://scenes/game_level/Area2Dc.gd" id="21_gsfkf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dc6bo"]
+size = Vector2(13, 237)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s8huq"]
 atlas = ExtResource("8_j5nwq")
@@ -54,67 +60,67 @@ use_texture_padding = false
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:0/0 = 0
 3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:0/0/physics_layer_0/angular_velocity = 0.0
-3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_0/angular_velocity = 0.0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
 2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:1/0/physics_layer_0/angular_velocity = 0.0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:1/0 = 0
 3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:1/0/physics_layer_0/angular_velocity = 0.0
-3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:2/0 = 0
 0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:2/0/physics_layer_0/angular_velocity = 0.0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:2/0 = 0
 1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:2/0/physics_layer_0/angular_velocity = 0.0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:2/0 = 0
 2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:2/0/physics_layer_0/angular_velocity = 0.0
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:2/0 = 0
 3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:2/0/physics_layer_0/angular_velocity = 0.0
-3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:3/0 = 0
 0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:3/0/physics_layer_0/angular_velocity = 0.0
-0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:3/0 = 0
 1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:3/0/physics_layer_0/angular_velocity = 0.0
-1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:3/0 = 0
 2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:3/0/physics_layer_0/angular_velocity = 0.0
-2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:3/0 = 0
 3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:3/0/physics_layer_0/angular_velocity = 0.0
-3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_23aul"]
 physics_layer_0/collision_layer = 1
@@ -150,7 +156,15 @@ animations = [{
 }]
 
 [node name="GameLevel" type="Node2D"]
+script = ExtResource("1_mfbo6")
 metadata/_edit_horizontal_guides_ = [116.0, 178.0, 240.0]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("21_gsfkf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(318, 122)
+shape = SubResource("RectangleShape2D_dc6bo")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("1_4trtj")
@@ -209,14 +223,15 @@ offset = Vector2(2.08165e-12, 204)
 
 [node name="Platforms" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(2, 1)
+script = ExtResource("7_cps7o")
 
 [node name="Plain" type="TileMap" parent="ParallaxBackground/Platforms"]
 tile_set = SubResource("TileSet_23aul")
 format = 2
-layer_0/tile_data = PackedInt32Array(786435, 0, 3, 786436, 65536, 3, 786437, 131072, 3, 786438, 65536, 3, 786439, 196608, 2, 655386, 0, 0, 589854, 196608, 1, 720930, 196608, 1, 720909, 0, 2, 720910, 65536, 2, 720911, 131072, 2, 720912, 196608, 2, 589845, 65536, 0, 589861, 0, 2, 589862, 65536, 2, 589863, 131072, 2, 589864, 65536, 2, 589865, 131072, 2, 589866, 65536, 3, 589867, 131072, 2, 589868, 65536, 2, 589869, 131072, 2, 589870, 65536, 2, 589871, 131072, 2, 589872, 131072, 2, 589873, 65536, 3, 589874, 131072, 2, 589875, 131072, 2, 589876, 65536, 3, 589877, 65536, 3, 589878, 131072, 2, 589879, 196608, 3)
+layer_0/tile_data = PackedInt32Array(655386, 0, 0, 589854, 196608, 1, 720930, 196608, 1, 589861, 0, 2, 589862, 65536, 2, 589863, 131072, 2, 589864, 65536, 2, 589865, 131072, 2, 589866, 65536, 3, 589867, 131072, 2, 589868, 65536, 2, 589869, 131072, 2, 589870, 65536, 2, 589871, 131072, 2, 589872, 131072, 2, 589873, 65536, 3, 589874, 131072, 2, 589875, 131072, 2, 589876, 65536, 3, 589877, 65536, 3, 589878, 131072, 2, 589879, 196608, 3, 327682, 0, 3, 327683, 65536, 3, 327684, 131072, 3, 327685, 196608, 3, 917526, 0, 0, 917527, 0, 0, 917528, 0, 0, 917529, 0, 0, 917530, 0, 0, 917531, 0, 0, 917532, 0, 0, 917533, 0, 0, 917534, 0, 0, 917535, 0, 0, 327687, 0, 0)
 
 [node name="CharacterBody2D" parent="ParallaxBackground" instance=ExtResource("10_bx8hh")]
-position = Vector2(60, 176)
+position = Vector2(47, 65)
 
 [node name="BigMeteors" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(-0.5, 2.08165e-12)
@@ -228,6 +243,7 @@ centered = false
 offset = Vector2(0, 235)
 
 [node name="Layout" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PinkRectangle" type="TextureRect" parent="Layout"]
 offset_left = 360.0
@@ -308,4 +324,8 @@ theme_override_fonts/font = ExtResource("13_cb8bg")
 theme_override_font_sizes/font_size = 12
 script = ExtResource("12_oypjy")
 
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="pressed" from="Layout/BtnMarginContainer/GreenBtn" to="Layout/_FPSMarginContainer/HBoxContainer/_debug_fps" method="_on_green_btn_pressed"]
