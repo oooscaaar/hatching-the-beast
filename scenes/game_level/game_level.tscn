@@ -87,33 +87,6 @@ script = ExtResource("1_0xohr")
 metadata/_edit_horizontal_guides_ = [261.0, 9.0, 176.0]
 metadata/_edit_vertical_guides_ = [336.0, 352.0]
 
-[node name="Platforms" type="Node2D" parent="."]
-script = ExtResource("2_2mhbg")
-
-[node name="PlatformSingle" parent="Platforms" instance=ExtResource("7_y5218")]
-position = Vector2(48, 80)
-
-[node name="PlatformSingle2" parent="Platforms" instance=ExtResource("7_y5218")]
-position = Vector2(352, 160)
-
-[node name="PlatformSingle3" parent="Platforms" instance=ExtResource("7_y5218")]
-position = Vector2(32, 80)
-
-[node name="PlatformSingle4" parent="Platforms" instance=ExtResource("7_y5218")]
-position = Vector2(64, 80)
-
-[node name="PlatformSingle5" parent="Platforms" instance=ExtResource("7_y5218")]
-position = Vector2(79, 80)
-
-[node name="PlatformSingle6" parent="Platforms" instance=ExtResource("7_y5218")]
-position = Vector2(94, 80)
-
-[node name="PlatformSingle7" parent="Platforms" instance=ExtResource("7_y5218")]
-position = Vector2(111, 80)
-
-[node name="PlatformSingle8" parent="Platforms" instance=ExtResource("7_y5218")]
-position = Vector2(128, 80)
-
 [node name="EnterScreenArea" type="Area2D" parent="."]
 
 [node name="CollisionLine" type="CollisionShape2D" parent="EnterScreenArea"]
@@ -177,6 +150,34 @@ offset = Vector2(2.08165e-12, 204)
 
 [node name="CharacterBody2D" parent="ParallaxBackground" instance=ExtResource("10_bx8hh")]
 position = Vector2(48, 64)
+
+[node name="Platforms" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(2, 2)
+script = ExtResource("2_2mhbg")
+
+[node name="PlatformSingle" parent="ParallaxBackground/Platforms" instance=ExtResource("7_y5218")]
+position = Vector2(48, 80)
+
+[node name="PlatformSingle2" parent="ParallaxBackground/Platforms" instance=ExtResource("7_y5218")]
+position = Vector2(352, 160)
+
+[node name="PlatformSingle3" parent="ParallaxBackground/Platforms" instance=ExtResource("7_y5218")]
+position = Vector2(32, 80)
+
+[node name="PlatformSingle4" parent="ParallaxBackground/Platforms" instance=ExtResource("7_y5218")]
+position = Vector2(64, 80)
+
+[node name="PlatformSingle5" parent="ParallaxBackground/Platforms" instance=ExtResource("7_y5218")]
+position = Vector2(79, 80)
+
+[node name="PlatformSingle6" parent="ParallaxBackground/Platforms" instance=ExtResource("7_y5218")]
+position = Vector2(94, 80)
+
+[node name="PlatformSingle7" parent="ParallaxBackground/Platforms" instance=ExtResource("7_y5218")]
+position = Vector2(111, 80)
+
+[node name="PlatformSingle8" parent="ParallaxBackground/Platforms" instance=ExtResource("7_y5218")]
+position = Vector2(128, 80)
 
 [node name="BigMeteors" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(-0.5, 2.08165e-12)
@@ -269,6 +270,5 @@ theme_override_fonts/font = ExtResource("13_cb8bg")
 theme_override_font_sizes/font_size = 12
 script = ExtResource("12_oypjy")
 
-[connection signal="area_entered" from="EnterScreenArea" to="." method="_on_enter_screen_area_area_entered"]
-[connection signal="area_exited" from="EnterScreenArea" to="." method="_on_enter_screen_area_area_exited"]
+[connection signal="area_exited" from="EnterScreenArea" to="ParallaxBackground/Platforms" method="_on_enter_screen_area_exited"]
 [connection signal="pressed" from="Layout/BtnMarginContainer/GreenBtn" to="Layout/_FPSMarginContainer/HBoxContainer/_debug_fps" method="_on_green_btn_pressed"]
