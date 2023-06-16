@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvxayh2fn8743"]
+
+[ext_resource type="Script" path="res://scenes/game_level/platforms/2_platform.gd" id="1_2wj80"]
+[ext_resource type="Texture2D" uid="uid://c7ia5pln71nle" path="res://assets/sprites/game_level/platforms_spritesheet.png" id="2_w2by3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6u45"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivdc3"]
+size = Vector2(32, 16)
+
+[node name="2Platform" type="StaticBody2D"]
+script = ExtResource("1_2wj80")
+
+[node name="LeftPlatformTexture" type="Sprite2D" parent="."]
+texture = ExtResource("2_w2by3")
+centered = false
+hframes = 4
+vframes = 4
+frame = 8
+
+[node name="RightPlatformTexture" type="Sprite2D" parent="."]
+position = Vector2(16, 0)
+texture = ExtResource("2_w2by3")
+centered = false
+hframes = 4
+vframes = 4
+frame = 10
+
+[node name="EnterWorldArea" type="Area2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnterWorldArea"]
+position = Vector2(16, 8)
+shape = SubResource("RectangleShape2D_k6u45")
+
+[node name="CollisionArea" type="CollisionShape2D" parent="."]
+position = Vector2(16, 8)
+shape = SubResource("RectangleShape2D_ivdc3")

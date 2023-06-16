@@ -1,29 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvxayh2fn8743"]
+[gd_scene load_steps=5 format=3 uid="uid://foj5tqvfu6ce"]
 
-[ext_resource type="Texture2D" uid="uid://c7ia5pln71nle" path="res://assets/sprites/game_level/platforms_spritesheet.png" id="1_n5n7r"]
+[ext_resource type="Script" path="res://scenes/game_level/platforms/1_platform.gd" id="1_d6608"]
+[ext_resource type="Texture2D" uid="uid://c7ia5pln71nle" path="res://assets/sprites/game_level/platforms_spritesheet.png" id="2_jwic8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k6u45"]
-size = Vector2(32, 16)
+size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivdc3"]
-size = Vector2(32, 16)
+size = Vector2(16, 16)
 
 [node name="PlatformSingle" type="StaticBody2D"]
+script = ExtResource("1_d6608")
 
 [node name="PlatformTexture" type="Sprite2D" parent="."]
-scale = Vector2(2, 1)
-texture = ExtResource("1_n5n7r")
+texture = ExtResource("2_jwic8")
 centered = false
 hframes = 4
 vframes = 4
 frame = 1
 
 [node name="EnterWorldArea" type="Area2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnterWorldArea"]
-position = Vector2(16, 8)
+position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_k6u45")
 
 [node name="CollisionArea" type="CollisionShape2D" parent="."]
-position = Vector2(16, 8)
+position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_ivdc3")
+metadata/_edit_lock_ = true

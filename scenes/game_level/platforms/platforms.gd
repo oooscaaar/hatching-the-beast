@@ -1,6 +1,6 @@
 extends Node2D
 
-var platform_scenes := [preload("res://scenes/game_level/platforms/platform_single.tscn"), preload("res://scenes/game_level/platforms/platform_double.tscn")]
+var platform_scenes := [preload("res://scenes/game_level/platforms/1_platform.tscn"), preload("res://scenes/game_level/platforms/2_platform.tscn")]
 
 
 func _on_enter_screen_area_exited(area: Area2D) -> void:
