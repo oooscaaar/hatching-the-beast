@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhjma4el233g4"]
+
+[ext_resource type="Script" path="res://scenes/game_level/platforms/6_platform.gd" id="1_2sshw"]
+[ext_resource type="Texture2D" uid="uid://c7ia5pln71nle" path="res://assets/sprites/game_level/platforms_spritesheet.png" id="2_yvivi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6u45"]
+size = Vector2(96, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivdc3"]
+size = Vector2(96, 16)
+
+[node name="6Platform" type="StaticBody2D"]
+script = ExtResource("1_2sshw")
+
+[node name="LeftPlatformTexture" type="Sprite2D" parent="."]
+texture = ExtResource("2_yvivi")
+centered = false
+hframes = 4
+vframes = 4
+frame = 8
+
+[node name="Mid1PlatformTexture" type="Sprite2D" parent="."]
+position = Vector2(16, 0)
+texture = ExtResource("2_yvivi")
+centered = false
+hframes = 4
+vframes = 4
+frame = 12
+
+[node name="Mid2PlatformTexture" type="Sprite2D" parent="."]
+position = Vector2(32, 0)
+texture = ExtResource("2_yvivi")
+centered = false
+hframes = 4
+vframes = 4
+frame = 13
+
+[node name="Mid3PlatformTexture" type="Sprite2D" parent="."]
+position = Vector2(48, 0)
+texture = ExtResource("2_yvivi")
+centered = false
+hframes = 4
+vframes = 4
+frame = 13
+
+[node name="Mid4PlatformTexture" type="Sprite2D" parent="."]
+position = Vector2(64, 0)
+texture = ExtResource("2_yvivi")
+centered = false
+hframes = 4
+vframes = 4
+frame = 13
+
+[node name="RightPlatformTexture" type="Sprite2D" parent="."]
+position = Vector2(80, 0)
+texture = ExtResource("2_yvivi")
+centered = false
+hframes = 4
+vframes = 4
+frame = 10
+
+[node name="EnterWorldArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnterWorldArea"]
+position = Vector2(48, 8)
+shape = SubResource("RectangleShape2D_k6u45")
+
+[node name="CollisionArea" type="CollisionShape2D" parent="."]
+position = Vector2(48, 8)
+shape = SubResource("RectangleShape2D_ivdc3")
