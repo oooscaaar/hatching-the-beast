@@ -28,10 +28,15 @@ const feasible_landing_target_coordinates = {
 	11: [144, [3, 4, 5, 6, 7]],
 }
 
+func _ready() -> void:
+	pass
+
+var is_hatching_timer_over := false
 
 func _on_enter_screen_area_exited(area: Area2D) -> void:
 	var last_platform = area.get_parent()
 	_generate_new_platform(last_platform)
+	print("Is hatching timer over: ", is_hatching_timer_over)
 
 
 func _generate_new_platform_offset(last_platform_position, last_platform_width) -> Vector2i:
@@ -62,6 +67,11 @@ func _generate_new_platform_offset(last_platform_position, last_platform_width) 
 
 func _generate_new_platform(last_platform: Node) -> Node:
 	var last_platform_position = last_platform.get_position()
+	# Easy way to get spaceship
+	if not last_platform.get_node("CollisionArea"):
+		
+		return
+		
 	var last_platform_width = last_platform.get_node("CollisionArea").shape.get_size().x
 
 	var new_platform = platform_scenes[randi() % 6].instantiate()
@@ -74,3 +84,7 @@ func _generate_new_platform(last_platform: Node) -> Node:
 	new_platform.position = Vector2i(new_platform_coordinates)
 	call_deferred("add_child", new_platform)
 	return new_platform
+
+
+func _on_hatching_timer_timeout() -> void:
+	is_hatching_timer_over = true

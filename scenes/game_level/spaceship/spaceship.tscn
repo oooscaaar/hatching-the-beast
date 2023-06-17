@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfwolw1msb8qu"]
+
+[ext_resource type="Texture2D" uid="uid://bnieyiljs28st" path="res://assets/sprites/game_level/spaceship.png" id="1_3r236"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gr4v"]
+atlas = ExtResource("1_3r236")
+region = Rect2(0, 0, 72, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iexeq"]
+atlas = ExtResource("1_3r236")
+region = Rect2(72, 0, 72, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2q64i"]
+atlas = ExtResource("1_3r236")
+region = Rect2(144, 0, 72, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jouk3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gr4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iexeq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2q64i")
+}],
+"loop": false,
+"name": &"land",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnnrp"]
+size = Vector2(74, 64)
+
+[node name="Spaceship" type="AnimatedSprite2D"]
+position = Vector2(22, -64)
+sprite_frames = SubResource("SpriteFrames_jouk3")
+animation = &"land"
+frame = 2
+frame_progress = 1.0
+centered = false
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="SpaceshipCollisionShape" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(37, 32)
+shape = SubResource("RectangleShape2D_pnnrp")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)

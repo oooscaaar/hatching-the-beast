@@ -68,3 +68,7 @@ func _on_green_button_pressed() -> void:
 	hatching_timer.start()
 	# Fire spacecommander animation
 	# 
+
+
+func _on_play_again_button_pressed() -> void:
+	get_tree().reload_current_scene()
