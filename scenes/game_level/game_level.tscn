@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bdxpywrxl46kr"]
+[gd_scene load_steps=37 format=3 uid="uid://bdxpywrxl46kr"]
 
 [ext_resource type="Script" path="res://scenes/game_level/game_level.gd" id="1_0xohr"]
 [ext_resource type="Script" path="res://scenes/game_level/ParallaxBackground.gd" id="1_4trtj"]
@@ -24,6 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://dq3eeuloya28g" path="res://assets/sprites/game_level/green_button_pressed_state.png" id="15_vo4a8"]
 [ext_resource type="Texture2D" uid="uid://bm1k7lljykjxc" path="res://assets/sprites/game_level/green_button_hover_state.png" id="16_txw1s"]
 [ext_resource type="FontFile" uid="uid://c84y2c23l3mix" path="res://assets/fonts/VecTerminus12Bold.otf" id="24_4fqd0"]
+[ext_resource type="Theme" uid="uid://b2lu46tl14u5i" path="res://assets/themes/UI_theme.tres" id="25_3n5xe"]
+[ext_resource type="FontFile" uid="uid://2pssfypl5sck" path="res://assets/fonts/1980/1980v23P04.ttf" id="27_w84bi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_co1pi"]
 size = Vector2(332, 4)
@@ -168,6 +170,7 @@ centered = false
 offset = Vector2(2.08165e-12, 204)
 
 [node name="Platforms" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 motion_scale = Vector2(2, 1)
 script = ExtResource("2_2mhbg")
 metadata/_edit_lock_ = true
@@ -182,6 +185,7 @@ position = Vector2(160, 144)
 position = Vector2(272, 144)
 
 [node name="Player" parent="ParallaxBackground" instance=ExtResource("12_jhbxd")]
+visible = false
 position = Vector2(47, 129)
 
 [node name="BigMeteors" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -195,6 +199,7 @@ centered = false
 offset = Vector2(0, 235)
 
 [node name="Layout" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("14_5iklp")
 
 [node name="WhiteBgMask" type="TextureRect" parent="Layout"]
@@ -322,7 +327,6 @@ wait_time = 3.0
 one_shot = true
 
 [node name="Gameover" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="GameoverAlphaLayer" type="ColorRect" parent="Gameover"]
 anchors_preset = 15
@@ -336,16 +340,45 @@ color = Color(0, 0, 0, 0.745098)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -172.5
-offset_right = 172.5
-offset_bottom = 104.0
+offset_left = -120.0
+offset_top = 40.0
+offset_right = 120.0
+offset_bottom = 90.0
 grow_horizontal = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("24_4fqd0")
-theme_override_font_sizes/font_size = 72
+theme = ExtResource("25_3n5xe")
+theme_override_fonts/font = ExtResource("27_w84bi")
+theme_override_font_sizes/font_size = 58
 text = "Game over"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PlayAgainButton" type="Button" parent="Gameover"]
+offset_left = 200.0
+offset_top = 120.0
+offset_right = 280.0
+offset_bottom = 152.0
+theme = ExtResource("25_3n5xe")
+text = "Play again"
+
+[node name="MenuButton" type="Button" parent="Gameover"]
+offset_left = 216.0
+offset_top = 160.0
+offset_right = 264.0
+offset_bottom = 192.0
+theme = ExtResource("25_3n5xe")
+theme_override_font_sizes/font_size = 16
+text = "Menu"
+
+[node name="QuitButton" type="Button" parent="Gameover"]
+offset_left = 216.0
+offset_top = 200.0
+offset_right = 264.0
+offset_bottom = 231.0
+theme = ExtResource("25_3n5xe")
+theme_override_fonts/font = ExtResource("27_w84bi")
+theme_override_font_sizes/font_size = 16
+text = "Quit"
 
 [connection signal="body_exited" from="DeathArea" to="." method="_on_death_area_body_exited"]
 [connection signal="area_exited" from="EnterScreenArea" to="ParallaxBackground/Platforms" method="_on_enter_screen_area_exited"]
