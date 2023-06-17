@@ -151,8 +151,9 @@ texture = ExtResource("6_ci5gk")
 centered = false
 offset = Vector2(2.08165e-12, 204)
 
-[node name="CharacterBody2D" parent="ParallaxBackground" instance=ExtResource("10_bx8hh")]
+[node name="Player" parent="ParallaxBackground" instance=ExtResource("10_bx8hh")]
 position = Vector2(80, 128)
+script = null
 
 [node name="Platforms" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(2, 1)
