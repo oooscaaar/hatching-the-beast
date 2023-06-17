@@ -22,7 +22,7 @@ func start_game() -> void:
 
 
 func _process(delta):
-	if timer.time_left >= 1:
+	if snapped(timer.time_left, 1) != 0:
 		countdown_label.text = str(snapped(timer.time_left, 1))
 	else:
 		countdown_label.text = 'Go!'
