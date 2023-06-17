@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bdxpywrxl46kr"]
+[gd_scene load_steps=34 format=3 uid="uid://bdxpywrxl46kr"]
 
 [ext_resource type="Script" path="res://scenes/game_level/game_level.gd" id="1_0xohr"]
 [ext_resource type="Script" path="res://scenes/game_level/ParallaxBackground.gd" id="1_4trtj"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" path="res://scenes/game_level/layout.gd" id="14_5iklp"]
 [ext_resource type="Texture2D" uid="uid://0jeab8nnr1tr" path="res://assets/sprites/game_level/green_button_pressed_state.png" id="15_vo4a8"]
 [ext_resource type="Texture2D" uid="uid://bm1k7lljykjxc" path="res://assets/sprites/game_level/green_button_hover_state.png" id="16_txw1s"]
+[ext_resource type="FontFile" uid="uid://c84y2c23l3mix" path="res://assets/fonts/VecTerminus12Bold.otf" id="24_4fqd0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ag5dw"]
 size = Vector2(16, 272)
@@ -87,10 +88,11 @@ animations = [{
 
 [node name="GameLevel" type="Node2D"]
 script = ExtResource("1_0xohr")
-metadata/_edit_horizontal_guides_ = [261.0, 9.0, 176.0]
-metadata/_edit_vertical_guides_ = [336.0, 352.0]
+metadata/_edit_horizontal_guides_ = [261.0, 9.0, 176.0, 136.0, 224.0]
+metadata/_edit_vertical_guides_ = [336.0, 352.0, 167.0]
 
 [node name="EnterScreenArea" type="Area2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="CollisionLine" type="CollisionShape2D" parent="EnterScreenArea"]
 position = Vector2(344, 136)
@@ -102,6 +104,7 @@ script = ExtResource("1_4trtj")
 [node name="Supernovas" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(2.08165e-12, 2.08165e-12)
 motion_mirroring = Vector2(554, 2.08165e-12)
+metadata/_edit_lock_ = true
 
 [node name="SupernovasTexture" type="TextureRect" parent="ParallaxBackground/Supernovas"]
 offset_right = 40.0
@@ -112,6 +115,7 @@ metadata/_edit_lock_ = true
 [node name="Stars" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(2.08165e-12, 2.08165e-12)
 motion_mirroring = Vector2(315, 2.08165e-12)
+metadata/_edit_lock_ = true
 
 [node name="AnimatedStars" type="AnimatedSprite2D" parent="ParallaxBackground/Stars"]
 modulate = Color(1, 1, 1, 0.784314)
@@ -125,6 +129,7 @@ metadata/_edit_lock_ = true
 [node name="Meteors" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.5, 0.714)
 motion_mirroring = Vector2(437, 2.08165e-12)
+metadata/_edit_lock_ = true
 
 [node name="MeteorsSprite" type="Sprite2D" parent="ParallaxBackground/Meteors"]
 texture = ExtResource("2_cmlo8")
@@ -135,6 +140,7 @@ metadata/_edit_lock_ = true
 [node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.1, 0)
 motion_mirroring = Vector2(343, 2.08165e-12)
+metadata/_edit_lock_ = true
 
 [node name="CloudsSprite" type="Sprite2D" parent="ParallaxBackground/Clouds"]
 texture = ExtResource("5_fw57r")
@@ -145,6 +151,7 @@ metadata/_edit_lock_ = true
 [node name="Mountains" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.2, 0.2)
 motion_mirroring = Vector2(286, 0)
+metadata/_edit_lock_ = true
 
 [node name="MountainsSprite" type="Sprite2D" parent="ParallaxBackground/Mountains"]
 texture = ExtResource("6_ci5gk")
@@ -154,6 +161,7 @@ offset = Vector2(2.08165e-12, 204)
 [node name="Platforms" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(2, 1)
 script = ExtResource("2_2mhbg")
+metadata/_edit_lock_ = true
 
 [node name="6Platform" parent="ParallaxBackground/Platforms" instance=ExtResource("14_0se8e")]
 position = Vector2(32, 144)
@@ -165,11 +173,12 @@ position = Vector2(160, 144)
 position = Vector2(272, 144)
 
 [node name="Player" parent="ParallaxBackground" instance=ExtResource("12_jhbxd")]
-position = Vector2(32, 128)
+position = Vector2(47, 129)
 
 [node name="BigMeteors" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(-0.5, 2.08165e-12)
 motion_mirroring = Vector2(390, 2.08165e-12)
+metadata/_edit_lock_ = true
 
 [node name="BigMeteorsSprite" type="Sprite2D" parent="ParallaxBackground/BigMeteors"]
 texture = ExtResource("5_h5xsg")
@@ -179,6 +188,13 @@ offset = Vector2(0, 235)
 [node name="Layout" type="CanvasLayer" parent="."]
 script = ExtResource("14_5iklp")
 
+[node name="WhiteBgMask" type="TextureRect" parent="Layout"]
+offset_right = 480.0
+offset_bottom = 270.0
+mouse_filter = 2
+texture = ExtResource("1_pem8y")
+metadata/_edit_lock_ = true
+
 [node name="PinkRectangle" type="TextureRect" parent="Layout"]
 offset_left = 360.0
 offset_top = 12.0
@@ -187,30 +203,6 @@ offset_bottom = 147.0
 mouse_filter = 2
 texture = ExtResource("1_f343s")
 metadata/_edit_lock_ = true
-
-[node name="WhiteBgMask" type="TextureRect" parent="Layout"]
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 2
-texture = ExtResource("1_pem8y")
-metadata/_edit_lock_ = true
-
-[node name="BlueWindowsFrames" type="TextureRect" parent="Layout"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("2_7toak")
-metadata/_edit_lock_ = true
-
-[node name="AnimatedEgg" type="AnimatedSprite2D" parent="Layout"]
-position = Vector2(378, 38)
-sprite_frames = SubResource("SpriteFrames_sj8ar")
-animation = &"move"
-autoplay = "move"
-centered = false
 
 [node name="BtnMarginContainer" type="MarginContainer" parent="Layout"]
 offset_left = 360.0
@@ -231,6 +223,51 @@ keep_pressed_outside = true
 texture_normal = ExtResource("1_irt6n")
 texture_pressed = ExtResource("15_vo4a8")
 texture_hover = ExtResource("16_txw1s")
+
+[node name="AnimatedEgg" type="AnimatedSprite2D" parent="Layout"]
+position = Vector2(378, 38)
+sprite_frames = SubResource("SpriteFrames_sj8ar")
+animation = &"move"
+autoplay = "move"
+centered = false
+
+[node name="AlphaLayers" type="Node2D" parent="Layout"]
+visible = false
+metadata/_edit_lock_ = true
+
+[node name="MainAlphaLayer" type="ColorRect" parent="Layout/AlphaLayers"]
+modulate = Color(1, 1, 1, 0.745098)
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 345.0
+offset_bottom = 262.0
+color = Color(0, 0, 0.666667, 1)
+
+[node name="TopRightAlphaLayer" type="ColorRect" parent="Layout/AlphaLayers"]
+modulate = Color(1, 1, 1, 0.823529)
+offset_left = 357.0
+offset_top = 9.0
+offset_right = 470.0
+offset_bottom = 150.0
+color = Color(1, 0.333333, 1, 1)
+
+[node name="BottomRightAlphaLayer" type="ColorRect" parent="Layout/AlphaLayers"]
+modulate = Color(1, 1, 1, 0.823529)
+offset_left = 357.0
+offset_top = 162.0
+offset_right = 470.0
+offset_bottom = 262.0
+color = Color(1, 1, 0.333333, 1)
+
+[node name="BlueWindowsFrames" type="TextureRect" parent="Layout"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_7toak")
+metadata/_edit_lock_ = true
 
 [node name="_FPSMarginContainer" type="MarginContainer" parent="Layout"]
 offset_left = 20.0
@@ -258,6 +295,23 @@ theme_override_fonts/font = ExtResource("13_cb8bg")
 theme_override_font_sizes/font_size = 12
 script = ExtResource("12_oypjy")
 
+[node name="CountDownLabel" type="Label" parent="Layout"]
+offset_left = 118.0
+offset_top = 34.0
+offset_right = 218.0
+offset_bottom = 238.0
+theme_override_fonts/font = ExtResource("24_4fqd0")
+theme_override_font_sizes/font_size = 100
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="area_exited" from="EnterScreenArea" to="ParallaxBackground/Platforms" method="_on_enter_screen_area_exited"]
 [connection signal="mouse_entered" from="Layout/BtnMarginContainer/GreenBtn" to="Layout" method="_on_green_button_mouse_entered"]
 [connection signal="mouse_exited" from="Layout/BtnMarginContainer/GreenBtn" to="Layout" method="_on_green_button_mouse_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -10,8 +10,8 @@ var platform_scenes := [
 	]
 	
 const GRID_SIZE = 16
-const MAX_PLATFORM_HEIGHT = 80
-const MIN_PLATFORM_HEIGHT = 240
+const MAX_PLATFORM_HEIGHT = 96
+const MIN_PLATFORM_HEIGHT = 208
 
 const feasible_landing_target_coordinates = {
 	0: [-32, [1, 2]],
@@ -55,8 +55,6 @@ func _generate_new_platform_offset(last_platform_position, last_platform_width) 
 			height_in_grid_units = randi_range(0, 1)
 		else:
 			height_in_grid_units = randi_range(2, 11)
-			while height_in_grid_units >= MAX_PLATFORM_HEIGHT:
-				height_in_grid_units = randi_range(2, 11)
 
 	width_in_grid_units = feasible_landing_target_coordinates[height_in_grid_units][1][randi_range(0, len(feasible_landing_target_coordinates[height_in_grid_units][1]) - 1)]
 	return Vector2i((width_in_grid_units + 1) * GRID_SIZE, feasible_landing_target_coordinates[height_in_grid_units][0])
@@ -68,6 +66,11 @@ func _generate_new_platform(last_platform: Node) -> Node:
 
 	var new_platform = platform_scenes[randi() % 6].instantiate()
 	var new_platform_offset = _generate_new_platform_offset(last_platform_position, last_platform_width)
-	new_platform.position = Vector2i(last_platform.get_position().x + last_platform_width +  new_platform_offset.x , last_platform_position.y +  new_platform_offset.y)
+	var new_platform_coordinates := Vector2i(last_platform.get_position().x + last_platform_width +  new_platform_offset.x, last_platform_position.y +  new_platform_offset.y)
+	if new_platform_coordinates.y > MIN_PLATFORM_HEIGHT:
+		new_platform_coordinates.y = MIN_PLATFORM_HEIGHT
+	if new_platform_coordinates.y < MAX_PLATFORM_HEIGHT:
+		new_platform_coordinates.y = MAX_PLATFORM_HEIGHT
+	new_platform.position = Vector2i(new_platform_coordinates)
 	call_deferred("add_child", new_platform)
 	return new_platform
