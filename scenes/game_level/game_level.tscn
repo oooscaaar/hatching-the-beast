@@ -168,7 +168,6 @@ centered = false
 offset = Vector2(2.08165e-12, 204)
 
 [node name="Platforms" type="ParallaxLayer" parent="ParallaxBackground"]
-visible = false
 motion_scale = Vector2(2, 1)
 script = ExtResource("2_2mhbg")
 metadata/_edit_lock_ = true
@@ -183,7 +182,6 @@ position = Vector2(160, 144)
 position = Vector2(272, 144)
 
 [node name="Player" parent="ParallaxBackground" instance=ExtResource("12_jhbxd")]
-visible = false
 position = Vector2(47, 129)
 
 [node name="BigMeteors" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -197,7 +195,6 @@ centered = false
 offset = Vector2(0, 235)
 
 [node name="Layout" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("14_5iklp")
 
 [node name="WhiteBgMask" type="TextureRect" parent="Layout"]
@@ -276,6 +273,7 @@ offset_left = 120.0
 offset_top = 61.0
 offset_right = 220.0
 offset_bottom = 173.0
+theme = ExtResource("24_woi85")
 theme_override_font_sizes/font_size = 100
 text = "
 "
@@ -322,6 +320,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="Gameover" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="GameoverAlphaLayer" type="ColorRect" parent="Gameover"]
 anchors_preset = 15
