@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bdxpywrxl46kr"]
+[gd_scene load_steps=35 format=3 uid="uid://bdxpywrxl46kr"]
 
 [ext_resource type="Script" path="res://scenes/game_level/game_level.gd" id="1_0xohr"]
 [ext_resource type="Script" path="res://scenes/game_level/ParallaxBackground.gd" id="1_4trtj"]
@@ -18,14 +18,12 @@
 [ext_resource type="Script" path="res://scenes/game_level/_debug_fps.gd" id="12_oypjy"]
 [ext_resource type="PackedScene" uid="uid://ld2xm203f6t1" path="res://scenes/game_level/platforms/4_platform.tscn" id="12_tu6xg"]
 [ext_resource type="PackedScene" uid="uid://bvvmn0hm6x410" path="res://scenes/game_level/platforms/5_platform.tscn" id="13_5bl6c"]
-[ext_resource type="FontFile" uid="uid://cpm2pfxn0c44x" path="res://assets/fonts/VecTerminus12Medium.otf" id="13_cb8bg"]
 [ext_resource type="PackedScene" uid="uid://bhjma4el233g4" path="res://scenes/game_level/platforms/6_platform.tscn" id="14_0se8e"]
 [ext_resource type="Script" path="res://scenes/game_level/layout.gd" id="14_5iklp"]
-[ext_resource type="Texture2D" uid="uid://dq3eeuloya28g" path="res://assets/sprites/game_level/green_button_pressed_state.png" id="15_vo4a8"]
+[ext_resource type="Texture2D" uid="uid://bv5cisrsnscnk" path="res://assets/sprites/game_level/green_button_pressed_state.png" id="15_vo4a8"]
 [ext_resource type="Texture2D" uid="uid://bm1k7lljykjxc" path="res://assets/sprites/game_level/green_button_hover_state.png" id="16_txw1s"]
-[ext_resource type="FontFile" uid="uid://c84y2c23l3mix" path="res://assets/fonts/VecTerminus12Bold.otf" id="24_4fqd0"]
-[ext_resource type="Theme" uid="uid://b2lu46tl14u5i" path="res://assets/themes/UI_theme.tres" id="25_3n5xe"]
-[ext_resource type="FontFile" uid="uid://2pssfypl5sck" path="res://assets/fonts/1980/1980v23P04.ttf" id="27_w84bi"]
+[ext_resource type="Theme" uid="uid://djla0tgj1q1be" path="res://assets/themes/UI_theme_PC.tres" id="24_woi85"]
+[ext_resource type="FontFile" uid="uid://dhae6exylya53" path="res://assets/fonts/1980/1980v23P04.ttf" id="27_w84bi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_co1pi"]
 size = Vector2(332, 4)
@@ -93,8 +91,8 @@ animations = [{
 
 [node name="GameLevel" type="Node2D"]
 script = ExtResource("1_0xohr")
-metadata/_edit_horizontal_guides_ = [261.0, 9.0, 176.0, 136.0, 224.0]
-metadata/_edit_vertical_guides_ = [336.0, 352.0, 240.0]
+metadata/_edit_horizontal_guides_ = [136.0]
+metadata/_edit_vertical_guides_ = [240.0]
 
 [node name="DeathArea" type="Area2D" parent="."]
 
@@ -278,7 +276,6 @@ offset_left = 120.0
 offset_top = 61.0
 offset_right = 220.0
 offset_bottom = 173.0
-theme_override_fonts/font = ExtResource("24_4fqd0")
 theme_override_font_sizes/font_size = 100
 text = "
 "
@@ -310,7 +307,6 @@ size_flags_horizontal = 0
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 0.333333, 1)
-theme_override_fonts/font = ExtResource("13_cb8bg")
 theme_override_font_sizes/font_size = 12
 text = "FPS"
 
@@ -318,7 +314,6 @@ text = "FPS"
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_colors/font_color = Color(1, 1, 0.333333, 1)
-theme_override_fonts/font = ExtResource("13_cb8bg")
 theme_override_font_sizes/font_size = 12
 script = ExtResource("12_oypjy")
 
@@ -346,7 +341,6 @@ offset_right = 120.0
 offset_bottom = 90.0
 grow_horizontal = 2
 size_flags_horizontal = 4
-theme = ExtResource("25_3n5xe")
 theme_override_fonts/font = ExtResource("27_w84bi")
 theme_override_font_sizes/font_size = 58
 text = "Game over"
@@ -358,7 +352,7 @@ offset_left = 200.0
 offset_top = 120.0
 offset_right = 280.0
 offset_bottom = 152.0
-theme = ExtResource("25_3n5xe")
+theme = ExtResource("24_woi85")
 text = "Play again"
 
 [node name="MenuButton" type="Button" parent="Gameover"]
@@ -366,18 +360,16 @@ offset_left = 216.0
 offset_top = 160.0
 offset_right = 264.0
 offset_bottom = 192.0
-theme = ExtResource("25_3n5xe")
+theme = ExtResource("24_woi85")
 theme_override_font_sizes/font_size = 16
 text = "Menu"
 
-[node name="QuitButton" type="Button" parent="Gameover"]
+[node name="Button" type="Button" parent="Gameover"]
 offset_left = 216.0
 offset_top = 200.0
 offset_right = 264.0
-offset_bottom = 231.0
-theme = ExtResource("25_3n5xe")
-theme_override_fonts/font = ExtResource("27_w84bi")
-theme_override_font_sizes/font_size = 16
+offset_bottom = 232.0
+theme = ExtResource("24_woi85")
 text = "Quit"
 
 [connection signal="body_exited" from="DeathArea" to="." method="_on_death_area_body_exited"]
