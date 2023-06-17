@@ -231,11 +231,10 @@ animation = &"move"
 autoplay = "move"
 centered = false
 
-[node name="AlphaLayers" type="Node2D" parent="Layout"]
-visible = false
+[node name="Countdown" type="Node2D" parent="Layout"]
 metadata/_edit_lock_ = true
 
-[node name="MainAlphaLayer" type="ColorRect" parent="Layout/AlphaLayers"]
+[node name="MainAlphaLayer" type="ColorRect" parent="Layout/Countdown"]
 modulate = Color(1, 1, 1, 0.745098)
 offset_left = 10.0
 offset_top = 10.0
@@ -243,7 +242,7 @@ offset_right = 345.0
 offset_bottom = 262.0
 color = Color(0, 0, 0.666667, 1)
 
-[node name="TopRightAlphaLayer" type="ColorRect" parent="Layout/AlphaLayers"]
+[node name="TopRightAlphaLayer" type="ColorRect" parent="Layout/Countdown"]
 modulate = Color(1, 1, 1, 0.823529)
 offset_left = 357.0
 offset_top = 9.0
@@ -251,13 +250,26 @@ offset_right = 470.0
 offset_bottom = 150.0
 color = Color(1, 0.333333, 1, 1)
 
-[node name="BottomRightAlphaLayer" type="ColorRect" parent="Layout/AlphaLayers"]
+[node name="BottomRightAlphaLayer" type="ColorRect" parent="Layout/Countdown"]
 modulate = Color(1, 1, 1, 0.823529)
 offset_left = 357.0
 offset_top = 162.0
 offset_right = 470.0
 offset_bottom = 262.0
 color = Color(1, 1, 0.333333, 1)
+
+[node name="CountDownLabel" type="Label" parent="Layout/Countdown"]
+offset_left = 120.0
+offset_top = 61.0
+offset_right = 220.0
+offset_bottom = 173.0
+theme_override_fonts/font = ExtResource("24_4fqd0")
+theme_override_font_sizes/font_size = 100
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="BlueWindowsFrames" type="TextureRect" parent="Layout"]
 anchors_preset = 15
@@ -295,15 +307,17 @@ theme_override_fonts/font = ExtResource("13_cb8bg")
 theme_override_font_sizes/font_size = 12
 script = ExtResource("12_oypjy")
 
-[node name="CountDownLabel" type="Label" parent="Layout"]
-offset_left = 118.0
-offset_top = 34.0
-offset_right = 218.0
-offset_bottom = 238.0
+[node name="Gameover" type="Node2D" parent="Layout"]
+visible = false
+
+[node name="GameoverLabel" type="Label" parent="Layout/Gameover"]
+offset_left = 19.0
+offset_top = 44.0
+offset_right = 469.0
+offset_bottom = 148.0
 theme_override_fonts/font = ExtResource("24_4fqd0")
-theme_override_font_sizes/font_size = 100
-text = "
-"
+theme_override_font_sizes/font_size = 72
+text = "Game over"
 horizontal_alignment = 1
 vertical_alignment = 1
 
