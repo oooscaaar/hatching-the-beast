@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bdxpywrxl46kr"]
+[gd_scene load_steps=33 format=3 uid="uid://bdxpywrxl46kr"]
 
 [ext_resource type="Script" path="res://scenes/game_level/game_level.gd" id="1_0xohr"]
 [ext_resource type="Script" path="res://scenes/game_level/ParallaxBackground.gd" id="1_4trtj"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bvvmn0hm6x410" path="res://scenes/game_level/platforms/5_platform.tscn" id="13_5bl6c"]
 [ext_resource type="FontFile" uid="uid://cpm2pfxn0c44x" path="res://assets/fonts/VecTerminus12Medium.otf" id="13_cb8bg"]
 [ext_resource type="PackedScene" uid="uid://bhjma4el233g4" path="res://scenes/game_level/platforms/6_platform.tscn" id="14_0se8e"]
+[ext_resource type="Script" path="res://scenes/game_level/layout.gd" id="14_5iklp"]
 [ext_resource type="Texture2D" uid="uid://0jeab8nnr1tr" path="res://assets/sprites/game_level/green_button_pressed_state.png" id="15_vo4a8"]
 [ext_resource type="Texture2D" uid="uid://bm1k7lljykjxc" path="res://assets/sprites/game_level/green_button_hover_state.png" id="16_txw1s"]
 
@@ -176,6 +177,7 @@ centered = false
 offset = Vector2(0, 235)
 
 [node name="Layout" type="CanvasLayer" parent="."]
+script = ExtResource("14_5iklp")
 
 [node name="PinkRectangle" type="TextureRect" parent="Layout"]
 offset_left = 360.0
@@ -257,4 +259,5 @@ theme_override_font_sizes/font_size = 12
 script = ExtResource("12_oypjy")
 
 [connection signal="area_exited" from="EnterScreenArea" to="ParallaxBackground/Platforms" method="_on_enter_screen_area_exited"]
-[connection signal="pressed" from="Layout/BtnMarginContainer/GreenBtn" to="Layout/_FPSMarginContainer/HBoxContainer/_debug_fps" method="_on_green_btn_pressed"]
+[connection signal="mouse_entered" from="Layout/BtnMarginContainer/GreenBtn" to="." method="_on_green_button_mouse_entered"]
+[connection signal="mouse_exited" from="Layout/BtnMarginContainer/GreenBtn" to="." method="_on_green_button_mouse_exited"]
