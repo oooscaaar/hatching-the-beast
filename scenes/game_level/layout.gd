@@ -5,13 +5,6 @@ extends CanvasLayer
 @onready var finger_cursor = preload("res://assets/sprites/shared/black-finger-cursor.png")
 @onready var open_hand_cursor = preload("res://assets/sprites/shared/black-hand-cursor.png")
 
-func _ready() -> void:
-	pass
-
-
-func _process(delta: float) -> void:
-	pass
-
 
 func _on_green_button_mouse_entered() -> void:
 	Input.set_custom_mouse_cursor(finger_cursor, Input.CURSOR_ARROW, Vector2(16,16))

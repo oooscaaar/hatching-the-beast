@@ -1,0 +1,189 @@
+[gd_scene load_steps=25 format=3 uid="uid://dytueqrcha0sw"]
+
+[ext_resource type="Texture2D" uid="uid://7gckmsoipeqn" path="res://assets/sprites/game_level/white_background_mask.png" id="1_6y0yc"]
+[ext_resource type="Script" path="res://scenes/spaceship/spaceship.gd" id="1_h7fnf"]
+[ext_resource type="Texture2D" uid="uid://dbye4p7da5nbs" path="res://scenes/spaceship/animated_spaceship_background.tres" id="1_tl7qs"]
+[ext_resource type="Script" path="res://scenes/spaceship/spaceship_layout.gd" id="2_2sbse"]
+[ext_resource type="Texture2D" uid="uid://dtl3x44uue3l0" path="res://assets/sprites/game_level/egg_pink_background.png" id="2_momym"]
+[ext_resource type="Texture2D" uid="uid://cilw4xigockq4" path="res://assets/sprites/spaceship/lever-bg.png" id="4_rb0ef"]
+[ext_resource type="Texture2D" uid="uid://btjr3wmuv2qps" path="res://assets/sprites/spaceship/space-hatcher.png" id="4_x7sga"]
+[ext_resource type="Texture2D" uid="uid://22pexjhatfwm" path="res://assets/sprites/spaceship/lever-normal-state.png" id="5_070nd"]
+[ext_resource type="Texture2D" uid="uid://boy1m7wfubb06" path="res://assets/sprites/game_level/egg_spritesheet.png" id="6_0hi3l"]
+[ext_resource type="Texture2D" uid="uid://ceryr8mn2hhmf" path="res://assets/sprites/spaceship/lever-pressed-state.png" id="6_m12kp"]
+[ext_resource type="Texture2D" uid="uid://rre4fiti6ret" path="res://assets/sprites/spaceship/lever-hover-state.png" id="7_6v5qx"]
+[ext_resource type="Texture2D" uid="uid://dnhnt3yqxcg5v" path="res://assets/sprites/game_level/blue_windows.png" id="8_yqaas"]
+[ext_resource type="Texture2D" uid="uid://ds41f5q1h0220" path="res://assets/sprites/spaceship/egg-hatch-spritesheet.png" id="10_k7ryr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o64gl"]
+atlas = ExtResource("10_k7ryr")
+region = Rect2(0, 0, 112, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nd0a"]
+atlas = ExtResource("10_k7ryr")
+region = Rect2(112, 0, 112, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cs7c"]
+atlas = ExtResource("10_k7ryr")
+region = Rect2(224, 0, 112, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qih2"]
+atlas = ExtResource("10_k7ryr")
+region = Rect2(336, 0, 112, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6h0q"]
+atlas = ExtResource("10_k7ryr")
+region = Rect2(448, 0, 112, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5y7j"]
+atlas = ExtResource("6_0hi3l")
+region = Rect2(0, 0, 71, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dwiy"]
+atlas = ExtResource("6_0hi3l")
+region = Rect2(71, 0, 71, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chyb0"]
+atlas = ExtResource("6_0hi3l")
+region = Rect2(142, 0, 71, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fqn4i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o64gl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nd0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cs7c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qih2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6h0q")
+}],
+"loop": false,
+"name": &"hatch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5y7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dwiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chyb0")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_gc0ao"]
+resource_name = "spacehatcher_enters"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpaceHatcher:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-70, 100), Vector2(13, 29)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bqqo1"]
+_data = {
+"spacehatcher_enters": SubResource("Animation_gc0ao")
+}
+
+[node name="Spaceship" type="Node2D"]
+script = ExtResource("1_h7fnf")
+
+[node name="Spaceship" type="TextureRect" parent="."]
+offset_left = 13.0
+offset_top = 12.0
+offset_right = 342.0
+offset_bottom = 259.0
+texture = ExtResource("1_tl7qs")
+
+[node name="SpaceshipLayout" type="CanvasLayer" parent="."]
+script = ExtResource("2_2sbse")
+
+[node name="SpaceHatcher" type="TextureRect" parent="SpaceshipLayout"]
+offset_left = -70.0
+offset_top = 100.0
+offset_right = 53.0
+offset_bottom = 330.0
+texture = ExtResource("4_x7sga")
+
+[node name="WhiteBgMask_" type="TextureRect" parent="SpaceshipLayout"]
+offset_right = 480.0
+offset_bottom = 270.0
+mouse_filter = 2
+texture = ExtResource("1_6y0yc")
+metadata/_edit_lock_ = true
+
+[node name="PinkRectangle" type="TextureRect" parent="SpaceshipLayout"]
+offset_left = 360.0
+offset_top = 12.0
+offset_right = 468.0
+offset_bottom = 147.0
+mouse_filter = 2
+texture = ExtResource("2_momym")
+metadata/_edit_lock_ = true
+
+[node name="BtnMarginContainer" type="MarginContainer" parent="SpaceshipLayout"]
+offset_left = 360.0
+offset_top = 165.0
+offset_right = 467.0
+offset_bottom = 259.0
+
+[node name="GreenSquare" type="TextureRect" parent="SpaceshipLayout/BtnMarginContainer"]
+layout_mode = 2
+texture = ExtResource("4_rb0ef")
+
+[node name="Lever" type="TextureButton" parent="SpaceshipLayout/BtnMarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+keep_pressed_outside = true
+texture_normal = ExtResource("5_070nd")
+texture_pressed = ExtResource("6_m12kp")
+texture_hover = ExtResource("7_6v5qx")
+
+[node name="SpaceshipAnimatedEgg" type="AnimatedSprite2D" parent="SpaceshipLayout"]
+position = Vector2(414, 81)
+sprite_frames = SubResource("SpriteFrames_fqn4i")
+animation = &"move"
+autoplay = "move"
+
+[node name="BlueWindowsFrames" type="TextureRect" parent="SpaceshipLayout"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_yqaas")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SpaceshipLayout"]
+autoplay = "spacehatcher_enters"
+libraries = {
+"": SubResource("AnimationLibrary_bqqo1")
+}
+
+[connection signal="button_down" from="SpaceshipLayout/BtnMarginContainer/Lever" to="SpaceshipLayout" method="_on_lever_button_down"]
+[connection signal="button_up" from="SpaceshipLayout/BtnMarginContainer/Lever" to="SpaceshipLayout" method="_on_lever_button_up"]
+[connection signal="mouse_entered" from="SpaceshipLayout/BtnMarginContainer/Lever" to="SpaceshipLayout" method="_on_lever_mouse_entered"]
+[connection signal="mouse_exited" from="SpaceshipLayout/BtnMarginContainer/Lever" to="SpaceshipLayout" method="_on_lever_mouse_exited"]
+[connection signal="pressed" from="SpaceshipLayout/BtnMarginContainer/Lever" to="." method="_on_lever_pressed"]
+[connection signal="animation_finished" from="SpaceshipLayout/SpaceshipAnimatedEgg" to="." method="_on_spaceship_animated_egg_animation_finished"]

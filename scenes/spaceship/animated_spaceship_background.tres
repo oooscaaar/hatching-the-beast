@@ -1,0 +1,20 @@
+[gd_resource type="AnimatedTexture" load_steps=6 format=3 uid="uid://dbye4p7da5nbs"]
+
+[ext_resource type="Texture2D" uid="uid://c8b7a44uwvtpb" path="res://assets/sprites/spaceship/animated-spaceship-bg1.png" id="1_pwysd"]
+[ext_resource type="Texture2D" uid="uid://2gxwj28su3ul" path="res://assets/sprites/spaceship/animated-spaceship-bg2.png" id="2_ylu4d"]
+[ext_resource type="Texture2D" uid="uid://w7mxvsa80nix" path="res://assets/sprites/spaceship/animated-spaceship-bg3.png" id="3_315h4"]
+[ext_resource type="Texture2D" uid="uid://cf1jwmno1e6yu" path="res://assets/sprites/spaceship/animated-spaceship-bg4.png" id="4_qddh0"]
+[ext_resource type="Texture2D" uid="uid://7mh5sy8xjhrs" path="res://assets/sprites/spaceship/animated-spaceship-bg5.png" id="5_malkg"]
+
+[resource]
+frames = 5
+frame_0/texture = ExtResource("1_pwysd")
+frame_0/duration = 0.3
+frame_1/texture = ExtResource("2_ylu4d")
+frame_1/duration = 0.3
+frame_2/texture = ExtResource("3_315h4")
+frame_2/duration = 0.3
+frame_3/texture = ExtResource("4_qddh0")
+frame_3/duration = 0.3
+frame_4/texture = ExtResource("5_malkg")
+frame_4/duration = 0.3

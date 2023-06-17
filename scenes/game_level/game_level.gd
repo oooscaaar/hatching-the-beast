@@ -4,6 +4,7 @@ extends Node2D
 @onready var parallax := $ParallaxBackground
 @onready var platforms := $ParallaxBackground/Platforms
 @onready var timer  := $Timer
+@onready var hatching_timer := $HatchingTimer
 @onready var countdown := $Layout/Countdown
 @onready var animated_egg := $Layout/AnimatedEgg
 @onready var countdown_label := $Layout/Countdown/CountDownLabel
@@ -35,6 +36,10 @@ func _gameover() -> void:
 	$Gameover.show()
 	
 	
+func _game_won() -> void:
+	get_tree().change_scene_to_file("res://MainMenu.tscn")
+	
+	
 
 func _hide_nodes(nodes: Array[Node]) -> void:
 	for node in nodes:
@@ -52,3 +57,14 @@ func _on_timer_timeout() -> void:
 
 func _on_death_area_body_exited(body):
 	_gameover()
+
+
+func _on_hatching_timer_timeout() -> void:
+	# Spawn spaceship
+	pass
+
+
+func _on_green_button_pressed() -> void:
+	hatching_timer.start()
+	# Fire spacecommander animation
+	# 
