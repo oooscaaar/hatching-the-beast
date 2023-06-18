@@ -7,7 +7,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var _level = game_level.instantiate()
+	var _level = intro.instantiate()
 	add_child(_level)
 	
 
