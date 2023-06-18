@@ -7,7 +7,8 @@ extends CanvasLayer
 
 
 func _on_green_button_mouse_entered() -> void:
-	Input.set_custom_mouse_cursor(finger_cursor, Input.CURSOR_ARROW, Vector2(16,16))
+	if not $BtnMarginContainer/GreenBtn.disabled:
+		Input.set_custom_mouse_cursor(finger_cursor, Input.CURSOR_ARROW, Vector2(16,16))
 
 
 func _on_green_button_mouse_exited() -> void:

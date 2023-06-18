@@ -3,8 +3,9 @@ extends Node2D
 @onready var player := $ParallaxBackground/Player
 @onready var parallax := $ParallaxBackground
 @onready var platforms := $ParallaxBackground/Platforms
-@onready var timer  := $Timer
-@onready var hatching_timer := $HatchingTimer
+@onready var start_countdown_timer  := $StartCountdownTimer
+@onready var spaceship_wait_timer := $SpaceshipWaitTimer
+@onready var enable_hatching_timer := $EnableHatchingTimer
 @onready var countdown := $Layout/Countdown
 @onready var animated_egg := $Layout/AnimatedEgg
 @onready var countdown_label := $Layout/Countdown/CountDownLabel
@@ -13,12 +14,13 @@ extends Node2D
 func _ready():
 	_set_processes([parallax], false)
 	animated_egg.stop()
-	timer.start()
+	start_countdown_timer.start()
+	enable_hatching_timer.start()
 	countdown.show()
 
 func _process(delta):
-	if snapped(timer.time_left, 1) != 0:
-		countdown_label.text = str(snapped(timer.time_left, 1))
+	if snapped(start_countdown_timer.time_left, 1) != 0:
+		countdown_label.text = str(snapped(start_countdown_timer.time_left, 1))
 	else:
 		countdown_label.text = 'Go!'
 
@@ -60,10 +62,16 @@ func _on_death_area_body_exited(body):
 
 
 func _on_green_button_pressed() -> void:
-	hatching_timer.start()
-	# Fire spacecommander animation
-	# 
+	spaceship_wait_timer.start()
+	# TODO: Play spacecommander indications: "Spaceship on the way..."
+	$Layout/BtnMarginContainer/GreenBtn.disabled = true
 
 
 func _on_play_again_button_pressed() -> void:
 	get_tree().reload_current_scene()
+
+
+func _on_enable_hatching_timer_timeout() -> void:
+	$Layout/BtnMarginContainer/GreenBtn.disabled = false
+	#TODO: Play spaceommander explanation: "You can now hatch..."
+	pass
