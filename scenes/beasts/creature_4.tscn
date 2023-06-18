@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1tx5pcvjawfm"]
+
+[ext_resource type="Texture2D" uid="uid://cbyjsdyv1c7u8" path="res://assets/sprites/beasts/1.png" id="1_n3rqc"]
+[ext_resource type="Script" path="res://scenes/beasts/creature_signal4.gd" id="2_npvhp"]
+
+[node name="creature_4" type="TextureRect"]
+texture = ExtResource("1_n3rqc")
+script = ExtResource("2_npvhp")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

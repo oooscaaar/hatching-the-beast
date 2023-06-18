@@ -4,6 +4,7 @@ extends Node2D
 @onready var beasts_list = get_node("/root/BeastsDb")
 
 
+
 func _ready() -> void:
 	var hatched_beast = _unlock_beast(player_vars.last_score_in_time, beasts_list)
 	player_vars.beasts_owned.append(hatched_beast)
