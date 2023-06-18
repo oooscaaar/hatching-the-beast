@@ -9,7 +9,10 @@ extends Node2D
 @onready var countdown := $Layout/Countdown
 @onready var animated_egg := $Layout/AnimatedEgg
 @onready var countdown_label := $Layout/Countdown/CountDownLabel
+@onready var player_vars = get_node("/root/PlayerVariables")
 
+
+var elapsed_time := 0.0
 
 func _ready():
 	_set_processes([parallax], false)
@@ -19,11 +22,14 @@ func _ready():
 	countdown.show()
 
 func _process(delta):
+	elapsed_time += delta
 	if snapped(start_countdown_timer.time_left, 1) != 0:
 		countdown_label.text = str(snapped(start_countdown_timer.time_left, 1))
 	else:
 		countdown_label.text = 'Go!'
 
+func get_elapsed_time() -> float:
+	return elapsed_time
 
 func _start_game() -> void:
 	countdown.hide()
@@ -74,7 +80,6 @@ func _on_play_again_button_pressed() -> void:
 func _on_enable_hatching_timer_timeout() -> void:
 	$Layout/BtnMarginContainer/GreenBtn.disabled = false
 	#TODO: Play spaceommander explanation: "You can now hatch..."
-	pass
 
 
 func _on_quit_pressed() -> void:
@@ -83,3 +88,7 @@ func _on_quit_pressed() -> void:
 
 func _on_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/intro/intro.tscn")
+
+
+func _on_hatching_timer_timeout() -> void:
+	player_vars.last_score_in_time = elapsed_time

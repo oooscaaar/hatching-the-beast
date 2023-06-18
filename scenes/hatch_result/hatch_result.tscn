@@ -1,0 +1,250 @@
+[gd_scene load_steps=17 format=3 uid="uid://b74etyndrkjp4"]
+
+[ext_resource type="Script" path="res://scenes/hatch_result/hatch_result.gd" id="1_poycn"]
+[ext_resource type="Script" path="res://scenes/game_level/ParallaxBackground.gd" id="2_x17k1"]
+[ext_resource type="Texture2D" uid="uid://b1hr60rsx08sd" path="res://assets/sprites/game_level/supernova.png" id="3_0rfo1"]
+[ext_resource type="Texture2D" uid="uid://csy3bdpfxirdu" path="res://assets/sprites/game_level/stars_spritesheet.png" id="4_b6fmm"]
+[ext_resource type="Texture2D" uid="uid://b43e2fbcj4sxm" path="res://assets/sprites/game_level/meteors.png" id="5_tbkqc"]
+[ext_resource type="Texture2D" uid="uid://dgpnlaqm3rjva" path="res://assets/sprites/game_level/clouds.png" id="6_1hkwu"]
+[ext_resource type="Texture2D" uid="uid://127mx5ynnoo3" path="res://assets/sprites/game_level/mountain.png" id="7_gcefy"]
+[ext_resource type="Texture2D" uid="uid://cjrtjtgb1ox5c" path="res://assets/sprites/game_level/big_meteors.png" id="8_p7wd6"]
+[ext_resource type="FontFile" uid="uid://dhae6exylya53" path="res://assets/fonts/1980/1980v23P04.ttf" id="9_ecswe"]
+[ext_resource type="Texture2D" uid="uid://bld37fssh5cws" path="res://assets/sprites/beasts/frame-selected-beast.png" id="10_pnlcp"]
+[ext_resource type="Texture2D" uid="uid://c8oujqsak6ndh" path="res://assets/sprites/beasts/beasts.png" id="10_su0r0"]
+[ext_resource type="Theme" uid="uid://djla0tgj1q1be" path="res://assets/themes/UI_theme_PC.tres" id="11_y0qka"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8huq"]
+atlas = ExtResource("4_b6fmm")
+region = Rect2(0, 0, 315, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uoovv"]
+atlas = ExtResource("4_b6fmm")
+region = Rect2(315, 0, 315, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu4h6"]
+atlas = ExtResource("4_b6fmm")
+region = Rect2(630, 0, 315, 270)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g7n6a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8huq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uoovv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu4h6")
+}],
+"loop": true,
+"name": &"shine",
+"speed": 4.0
+}]
+
+[node name="HatchResult" type="Node2D"]
+script = ExtResource("1_poycn")
+metadata/_edit_vertical_guides_ = [240.0]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("2_x17k1")
+
+[node name="Supernovas" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(2.08165e-12, 2.08165e-12)
+motion_mirroring = Vector2(554, 2.08165e-12)
+metadata/_edit_lock_ = true
+
+[node name="SupernovasTexture" type="TextureRect" parent="ParallaxBackground/Supernovas"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_0rfo1")
+metadata/_edit_lock_ = true
+
+[node name="Stars" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(2.08165e-12, 2.08165e-12)
+motion_mirroring = Vector2(315, 2.08165e-12)
+metadata/_edit_lock_ = true
+
+[node name="AnimatedStars" type="AnimatedSprite2D" parent="ParallaxBackground/Stars"]
+modulate = Color(1, 1, 1, 0.784314)
+sprite_frames = SubResource("SpriteFrames_g7n6a")
+animation = &"shine"
+autoplay = "shine"
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Meteors" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.714)
+motion_mirroring = Vector2(437, 2.08165e-12)
+metadata/_edit_lock_ = true
+
+[node name="MeteorsSprite" type="Sprite2D" parent="ParallaxBackground/Meteors"]
+texture = ExtResource("5_tbkqc")
+centered = false
+offset = Vector2(0, 50)
+metadata/_edit_lock_ = true
+
+[node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0)
+motion_mirroring = Vector2(343, 2.08165e-12)
+metadata/_edit_lock_ = true
+
+[node name="CloudsSprite" type="Sprite2D" parent="ParallaxBackground/Clouds"]
+texture = ExtResource("6_1hkwu")
+centered = false
+offset = Vector2(2.08165e-12, 165)
+metadata/_edit_lock_ = true
+
+[node name="Mountains" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(280, 2.08165e-12)
+metadata/_edit_lock_ = true
+
+[node name="MountainsSprite" type="Sprite2D" parent="ParallaxBackground/Mountains"]
+texture = ExtResource("7_gcefy")
+centered = false
+offset = Vector2(2.08165e-12, 204)
+
+[node name="BigMeteors" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(-0.5, 2.08165e-12)
+motion_mirroring = Vector2(380, 2.08165e-12)
+metadata/_edit_lock_ = true
+
+[node name="BigMeteorsSprite" type="Sprite2D" parent="ParallaxBackground/BigMeteors"]
+texture = ExtResource("8_p7wd6")
+centered = false
+offset = Vector2(0, 235)
+
+[node name="Layout" type="CanvasLayer" parent="."]
+
+[node name="AlphaLayer" type="ColorRect" parent="Layout"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.745098)
+
+[node name="MarginContainer" type="MarginContainer" parent="Layout"]
+offset_left = 106.0
+offset_top = 12.0
+offset_right = 381.0
+offset_bottom = 198.0
+
+[node name="MainFrame" type="TextureRect" parent="Layout/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("10_pnlcp")
+metadata/_edit_lock_ = true
+
+[node name="Beast" type="Sprite2D" parent="Layout/MarginContainer"]
+position = Vector2(134, 125)
+texture = ExtResource("10_su0r0")
+hframes = 4
+vframes = 2
+
+[node name="HeaderLabel" type="Label" parent="Layout"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_top = 8.0
+offset_right = 120.0
+offset_bottom = 58.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("9_ecswe")
+theme_override_font_sizes/font_size = 32
+text = "Congratulations!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreatureNameLabel" type="Label" parent="Layout"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.0
+offset_top = 65.0
+offset_right = 2.0
+offset_bottom = 81.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("9_ecswe")
+theme_override_font_sizes/font_size = 16
+text = "Creature name: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreatureNameValue" type="Label" parent="Layout"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 5.0
+offset_top = 66.0
+offset_right = 103.0
+offset_bottom = 82.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("9_ecswe")
+theme_override_font_sizes/font_size = 16
+text = "-"
+vertical_alignment = 1
+
+[node name="CreatureRarityLabel" type="Label" parent="Layout"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.0
+offset_top = 81.0
+offset_right = -52.0
+offset_bottom = 97.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("9_ecswe")
+theme_override_font_sizes/font_size = 16
+text = "Rarity: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreatureRarityValue" type="Label" parent="Layout"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -49.0
+offset_top = 82.0
+offset_right = -5.0
+offset_bottom = 98.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("9_ecswe")
+theme_override_font_sizes/font_size = 16
+text = "-"
+vertical_alignment = 1
+
+[node name="PlayAgainButton" type="Button" parent="Layout"]
+offset_left = 200.0
+offset_top = 208.0
+offset_right = 280.0
+offset_bottom = 240.0
+theme = ExtResource("11_y0qka")
+text = "Play again"
+
+[node name="MenuButton" type="Button" parent="Layout"]
+offset_left = 112.0
+offset_top = 208.0
+offset_right = 160.0
+offset_bottom = 240.0
+theme = ExtResource("11_y0qka")
+theme_override_font_sizes/font_size = 16
+text = "Menu"
+
+[node name="Quit" type="Button" parent="Layout"]
+offset_left = 336.0
+offset_top = 208.0
+offset_right = 384.0
+offset_bottom = 240.0
+theme = ExtResource("11_y0qka")
+text = "Quit"
+
+[connection signal="pressed" from="Layout/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="Layout/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="Layout/Quit" to="." method="_on_quit_pressed"]

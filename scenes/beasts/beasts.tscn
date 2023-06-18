@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvgsk4vj1e1h"]
+
+[ext_resource type="Texture2D" uid="uid://cgl7bai48jjk6" path="res://scenes/beasts/animated_beasts_bg.tres" id="1_8dihy"]
+[ext_resource type="Script" path="res://scenes/beasts/beasts.gd" id="1_p0vk8"]
+[ext_resource type="Texture2D" uid="uid://wp2uccqbn5bk" path="res://assets/sprites/beasts/frame-grid-beasts.png" id="2_uctc7"]
+[ext_resource type="Texture2D" uid="uid://4d4j4slxovwy" path="res://assets/sprites/beasts/frame-selected-beast_.png" id="4_ovyxo"]
+[ext_resource type="Texture2D" uid="uid://dr3b3sjrm5rmi" path="res://assets/sprites/beasts/main_character.png" id="5_vdeaj"]
+[ext_resource type="Theme" uid="uid://djla0tgj1q1be" path="res://assets/themes/UI_theme_PC.tres" id="6_os8m5"]
+
+[node name="Beasts" type="Node2D"]
+script = ExtResource("1_p0vk8")
+metadata/_edit_horizontal_guides_ = [252.0, 240.0]
+
+[node name="BeastsBackground" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 480.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8dihy")
+flip_h = true
+
+[node name="GridFrame" type="TextureRect" parent="."]
+offset_left = 336.0
+offset_top = 9.0
+offset_right = 460.0
+offset_bottom = 241.0
+texture = ExtResource("2_uctc7")
+
+[node name="GridContainer2" type="GridContainer" parent="."]
+offset_left = 306.0
+offset_top = 21.0
+offset_right = 430.0
+offset_bottom = 253.0
+columns = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 112.0
+offset_top = 32.0
+offset_right = 313.0
+offset_bottom = 154.0
+
+[node name="MainFrame" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("4_ovyxo")
+metadata/_edit_lock_ = true
+
+[node name="BestName" type="Label" parent="."]
+offset_left = 308.0
+offset_top = 20.0
+offset_right = 348.0
+offset_bottom = 46.0
+text = "
+"
+
+[node name="MainCharacter" type="Sprite2D" parent="."]
+position = Vector2(23, 88)
+texture = ExtResource("5_vdeaj")
+centered = false
+
+[node name="PlayBtn" type="Button" parent="."]
+offset_left = 144.0
+offset_top = 192.0
+offset_right = 185.0
+offset_bottom = 223.0
+theme = ExtResource("6_os8m5")
+text = "Play"
+
+[node name="QuitBtn" type="Button" parent="."]
+offset_left = 240.0
+offset_top = 192.0
+offset_right = 282.0
+offset_bottom = 223.0
+theme = ExtResource("6_os8m5")
+text = "Quit"
+
+[connection signal="pressed" from="PlayBtn" to="." method="_on_play_button_pressed"]
