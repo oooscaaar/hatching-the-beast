@@ -62,6 +62,7 @@ frame = 10
 
 [node name="Spaceship" parent="." instance=ExtResource("3_mwarn")]
 position = Vector2(23, -64)
+frame_progress = 0.0
 
 [node name="EnterWorldArea" type="Area2D" parent="."]
 

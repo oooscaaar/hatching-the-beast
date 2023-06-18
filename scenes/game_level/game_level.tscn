@@ -238,6 +238,7 @@ position = Vector2(378, 38)
 sprite_frames = SubResource("SpriteFrames_sj8ar")
 animation = &"move"
 autoplay = "move"
+frame_progress = 0.179925
 centered = false
 
 [node name="Countdown" type="Node2D" parent="Layout"]
