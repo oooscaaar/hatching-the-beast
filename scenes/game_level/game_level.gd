@@ -75,3 +75,7 @@ func _on_enable_hatching_timer_timeout() -> void:
 	$Layout/BtnMarginContainer/GreenBtn.disabled = false
 	#TODO: Play spaceommander explanation: "You can now hatch..."
 	pass
+
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()
