@@ -1,5 +1,6 @@
 extends Node2D
 
+
 var platform_scenes := [
 	preload("res://scenes/game_level/platforms/1_platform.tscn"),
 	preload("res://scenes/game_level/platforms/2_platform.tscn"),
@@ -8,6 +9,7 @@ var platform_scenes := [
 	preload("res://scenes/game_level/platforms/5_platform.tscn"),
 	preload("res://scenes/game_level/platforms/6_platform.tscn"),
 	]
+var spaceship_platform := preload("res://scenes/game_level/platforms/spaceship_platform.tscn")
 	
 const GRID_SIZE = 16
 const MAX_PLATFORM_HEIGHT = 96
@@ -32,11 +34,16 @@ func _ready() -> void:
 	pass
 
 var is_hatching_timer_over := false
+var has_spaceship_been_isntantiated = false
 
 func _on_enter_screen_area_exited(area: Area2D) -> void:
+	if has_spaceship_been_isntantiated:
+		return
 	var last_platform = area.get_parent()
-	_generate_new_platform(last_platform)
-	print("Is hatching timer over: ", is_hatching_timer_over)
+	if is_hatching_timer_over:
+		_generate_spaceship_platform(last_platform)
+	else:
+		_generate_new_platform(last_platform)
 
 
 func _generate_new_platform_offset(last_platform_position, last_platform_width) -> Vector2i:
@@ -67,13 +74,7 @@ func _generate_new_platform_offset(last_platform_position, last_platform_width) 
 
 func _generate_new_platform(last_platform: Node) -> Node:
 	var last_platform_position = last_platform.get_position()
-	# Easy way to get spaceship
-	if not last_platform.get_node("CollisionArea"):
-		
-		return
-		
 	var last_platform_width = last_platform.get_node("CollisionArea").shape.get_size().x
-
 	var new_platform = platform_scenes[randi() % 6].instantiate()
 	var new_platform_offset = _generate_new_platform_offset(last_platform_position, last_platform_width)
 	var new_platform_coordinates := Vector2i(last_platform.get_position().x + last_platform_width +  new_platform_offset.x, last_platform_position.y +  new_platform_offset.y)
@@ -84,7 +85,25 @@ func _generate_new_platform(last_platform: Node) -> Node:
 	new_platform.position = Vector2i(new_platform_coordinates)
 	call_deferred("add_child", new_platform)
 	return new_platform
-
+	
+	
+func _generate_spaceship_platform(last_platform) -> Node:
+	var last_platform_position = last_platform.get_position()
+	if not last_platform.get_node("CollisionArea"):
+		return
+	var last_platform_width = last_platform.get_node("CollisionArea").shape.get_size().x
+	var new_platform = spaceship_platform.instantiate()
+	var new_platform_offset = _generate_new_platform_offset(last_platform_position, last_platform_width)
+	var new_platform_coordinates := Vector2i(last_platform.get_position().x + last_platform_width +  new_platform_offset.x, last_platform_position.y +  new_platform_offset.y)
+	if new_platform_coordinates.y > MIN_PLATFORM_HEIGHT:
+		new_platform_coordinates.y = MIN_PLATFORM_HEIGHT
+	if new_platform_coordinates.y < MAX_PLATFORM_HEIGHT:
+		new_platform_coordinates.y = MAX_PLATFORM_HEIGHT
+	new_platform.position = Vector2i(new_platform_coordinates)
+	call_deferred("add_child", new_platform)
+	has_spaceship_been_isntantiated = true
+	get_tree().get_root().get_node("GameLevel").get_node("EnterScreenArea").get_node("CollisionLine").set_disabled(true)
+	return new_platform
 
 func _on_hatching_timer_timeout() -> void:
 	is_hatching_timer_over = true

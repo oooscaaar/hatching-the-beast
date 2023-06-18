@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var main_menu = preload("res://scenes/menu/main_menu.tscn")
 @onready var game_level = preload("res://scenes/game_level/game_level.tscn")
 
 
@@ -7,7 +8,6 @@ extends Node2D
 func _ready():
 	var _level = game_level.instantiate()
 	add_child(_level)
-	
 	
 
 

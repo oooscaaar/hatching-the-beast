@@ -59,11 +59,6 @@ func _on_death_area_body_exited(body):
 	_gameover()
 
 
-func _on_hatching_timer_timeout() -> void:
-	# Spawn spaceship
-	pass
-
-
 func _on_green_button_pressed() -> void:
 	hatching_timer.start()
 	# Fire spacecommander animation
