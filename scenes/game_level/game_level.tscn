@@ -296,6 +296,7 @@ texture = ExtResource("2_7toak")
 metadata/_edit_lock_ = true
 
 [node name="_FPSMarginContainer" type="MarginContainer" parent="Layout"]
+visible = false
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 49.0
