@@ -23,6 +23,7 @@ func _ready():
 		instructions_timer.start()
 		instructions.show()
 		player_vars.has_read_instructions = true
+		$"/root/BackgroundMusic".volume_db = -20
 		$AudioPlayer.play()
 	else:
 		start_countdown_timer.start()
@@ -64,9 +65,7 @@ func _set_processes(nodes: Array[Node], enabled: bool) -> void:
 
 
 func _on_timer_timeout() -> void:
-	$AudioPlayer.stream = preload("res://assets/audio/main_theme.mp3")
-	$AudioPlayer.volume_db = -20
-	$AudioPlayer.play()
+	$"/root/BackgroundMusic".volume_db = -15
 	_start_game()
 
 
@@ -114,3 +113,9 @@ func _on_instructions_timer_timeout() -> void:
 func _on_death_area_body_entered(body: Node2D) -> void:
 	$DeathAudio.play()
 	
+
+func _on_audio_toggle_toggled(button_pressed: bool) -> void:
+	if button_pressed:
+		$"/root/BackgroundMusic".stop()
+	else:
+		$"/root/BackgroundMusic".play()

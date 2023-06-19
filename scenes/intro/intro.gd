@@ -1,5 +1,11 @@
 extends Node
 
+func _ready() -> void:
+	$"/root/BackgroundMusic".stream = preload("res://assets/audio/game_level_music.ogg")
+	$"/root/BackgroundMusic".volume_db = -15
+	$"/root/BackgroundMusic".play()
+	
+
 
 func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/beasts/beasts.tscn")

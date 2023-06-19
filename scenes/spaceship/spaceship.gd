@@ -3,9 +3,11 @@ extends Node2D
 @onready var animated_egg := $SpaceshipLayout/SpaceshipAnimatedEgg
 
 func _ready() -> void:
+	$"/root/BackgroundMusic".volume_db = -15
 	$SpaceshipSnd.play()
 
 func _on_lever_pressed() -> void:
+	$EggCrackPlayer.play()
 	animated_egg.play("hatch")
 	
 

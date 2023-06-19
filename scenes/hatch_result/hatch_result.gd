@@ -6,6 +6,7 @@ extends Node2D
 
 
 func _ready() -> void:
+	$"/root/BackgroundMusic".volume_db = -15
 	var hatched_beast = _unlock_beast(player_vars.last_score_in_time, beasts_list)
 	player_vars.beasts_owned.append(hatched_beast)
 	$Layout/MarginContainer/Beast.set_frame(hatched_beast.sprite)

@@ -20,6 +20,7 @@ config/icon="res://icon.png"
 PlayerVariables="*res://src/player_variables.gd"
 BeastsDb="*res://src/beasts_db.gd"
 AudioPlayer="*res://src/audio_player.gd"
+BackgroundMusic="*res://scenes/shared/background_music.tscn"
 
 [display]
 
