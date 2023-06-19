@@ -6,7 +6,9 @@ extends Node2D
 @onready var start_countdown_timer  := $StartCountdownTimer
 @onready var spaceship_wait_timer := $SpaceshipWaitTimer
 @onready var enable_hatching_timer := $EnableHatchingTimer
+@onready var instructions_timer := $InstructionsTimer
 @onready var countdown := $Layout/Countdown
+@onready var instructions := $Layout/Instructions
 @onready var animated_egg := $Layout/AnimatedEgg
 @onready var countdown_label := $Layout/Countdown/CountDownLabel
 @onready var player_vars = get_node("/root/PlayerVariables")
@@ -17,9 +19,15 @@ var elapsed_time := 0.0
 func _ready():
 	_set_processes([parallax], false)
 	animated_egg.stop()
-	start_countdown_timer.start()
-	enable_hatching_timer.start()
-	countdown.show()
+	if not player_vars.has_read_instructions:
+		instructions_timer.start()
+		instructions.show()
+		player_vars.has_read_instructions = true
+	else:
+		start_countdown_timer.start()
+		enable_hatching_timer.start()
+		countdown.show()
+	
 
 func _process(delta):
 	elapsed_time += delta
@@ -42,11 +50,6 @@ func _gameover() -> void:
 	_hide_nodes([$Layout])
 	$ParallaxBackground/Platforms.queue_free()
 	$Gameover.show()
-	
-	
-func _game_won() -> void:
-	get_tree().change_scene_to_file("res://MainMenu.tscn")
-	
 	
 
 func _hide_nodes(nodes: Array[Node]) -> void:
@@ -87,8 +90,15 @@ func _on_quit_pressed() -> void:
 
 
 func _on_menu_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/intro/intro.tscn")
+	get_tree().change_scene_to_file("res://scenes/beasts/beasts.tscn")
 
 
 func _on_hatching_timer_timeout() -> void:
 	player_vars.last_score_in_time = elapsed_time
+
+
+func _on_instructions_timer_timeout() -> void:
+	start_countdown_timer.start()
+	enable_hatching_timer.start()
+	countdown.show()
+	instructions.hide()

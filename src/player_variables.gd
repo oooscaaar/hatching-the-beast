@@ -12,3 +12,4 @@ var beasts_owned: Array[Dictionary] = [
 	{'name':'Stormcaller', 'rarity': 'Rare','sprite': 4 },
 	]
 var active_beast_index = null
+var has_read_instructions = false
