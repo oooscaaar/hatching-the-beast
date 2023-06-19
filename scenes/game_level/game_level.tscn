@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bdxpywrxl46kr"]
+[gd_scene load_steps=49 format=3 uid="uid://bdxpywrxl46kr"]
 
 [ext_resource type="Script" path="res://scenes/game_level/game_level.gd" id="1_0xohr"]
 [ext_resource type="Script" path="res://scenes/game_level/ParallaxBackground.gd" id="1_4trtj"]
@@ -23,9 +23,12 @@
 [ext_resource type="Texture2D" uid="uid://bv5cisrsnscnk" path="res://assets/sprites/game_level/green_button_pressed_state.png" id="15_vo4a8"]
 [ext_resource type="Texture2D" uid="uid://bm1k7lljykjxc" path="res://assets/sprites/game_level/green_button_hover_state.png" id="16_txw1s"]
 [ext_resource type="Texture2D" uid="uid://bqwxwlcxafnaj" path="res://assets/sprites/game_level/green_button_disabled_state.png" id="20_glk6g"]
+[ext_resource type="AudioStream" uid="uid://d36b4aaqwejmi" path="res://assets/audio/call_spaceship.wav" id="21_0ejdl"]
 [ext_resource type="Theme" uid="uid://djla0tgj1q1be" path="res://assets/themes/UI_theme_PC.tres" id="24_woi85"]
 [ext_resource type="Texture2D" uid="uid://qgakfmdotkh1" path="res://assets/sprites/game_level/space-commander-spritesheet.png" id="25_qygtn"]
+[ext_resource type="AudioStream" uid="uid://do0wy33f4bsf5" path="res://assets/audio/instructions.mp3" id="27_u3v34"]
 [ext_resource type="FontFile" uid="uid://dhae6exylya53" path="res://assets/fonts/1980/1980v23P04.ttf" id="27_w84bi"]
+[ext_resource type="AudioStream" uid="uid://cfmumktiiiokc" path="res://assets/audio/game-over.mp3" id="29_u31la"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_co1pi"]
 size = Vector2(332, 4)
@@ -317,6 +320,10 @@ texture_pressed = ExtResource("15_vo4a8")
 texture_hover = ExtResource("16_txw1s")
 texture_disabled = ExtResource("20_glk6g")
 
+[node name="BtnAudioPlayer" type="AudioStreamPlayer" parent="Layout/BtnMarginContainer"]
+stream = ExtResource("21_0ejdl")
+volume_db = -20.0
+
 [node name="AnimatedEgg" type="AnimatedSprite2D" parent="Layout"]
 position = Vector2(378, 38)
 sprite_frames = SubResource("SpriteFrames_sj8ar")
@@ -535,6 +542,15 @@ one_shot = true
 wait_time = 10.0
 one_shot = true
 
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("27_u3v34")
+volume_db = -10.0
+
+[node name="DeathAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("29_u31la")
+volume_db = -20.0
+
+[connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_body_entered"]
 [connection signal="body_exited" from="DeathArea" to="." method="_on_death_area_body_exited"]
 [connection signal="area_exited" from="EnterScreenArea" to="ParallaxBackground/Platforms" method="_on_enter_screen_area_exited"]
 [connection signal="mouse_entered" from="Layout/BtnMarginContainer/GreenBtn" to="Layout" method="_on_green_button_mouse_entered"]

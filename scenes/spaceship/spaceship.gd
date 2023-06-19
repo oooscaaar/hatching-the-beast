@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var animated_egg := $SpaceshipLayout/SpaceshipAnimatedEgg
 
+func _ready() -> void:
+	$SpaceshipSnd.play()
 
 func _on_lever_pressed() -> void:
 	animated_egg.play("hatch")

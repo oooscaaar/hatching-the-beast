@@ -23,6 +23,7 @@ func _ready():
 		instructions_timer.start()
 		instructions.show()
 		player_vars.has_read_instructions = true
+		$AudioPlayer.play()
 	else:
 		start_countdown_timer.start()
 		enable_hatching_timer.start()
@@ -63,6 +64,9 @@ func _set_processes(nodes: Array[Node], enabled: bool) -> void:
 
 
 func _on_timer_timeout() -> void:
+	$AudioPlayer.stream = preload("res://assets/audio/main_theme.mp3")
+	$AudioPlayer.volume_db = -20
+	$AudioPlayer.play()
 	_start_game()
 
 
@@ -74,6 +78,8 @@ func _on_green_button_pressed() -> void:
 	spaceship_wait_timer.start()
 	# TODO: Play spacecommander indications: "Spaceship on the way..."
 	$Layout/BtnMarginContainer/GreenBtn.disabled = true
+	$Layout/BtnMarginContainer/BtnAudioPlayer.play()
+	
 
 
 func _on_play_again_button_pressed() -> void:
@@ -102,3 +108,9 @@ func _on_instructions_timer_timeout() -> void:
 	enable_hatching_timer.start()
 	countdown.show()
 	instructions.hide()
+	$AudioPlayer.stop()
+
+
+func _on_death_area_body_entered(body: Node2D) -> void:
+	$DeathAudio.play()
+	

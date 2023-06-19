@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bfwolw1msb8qu"]
+[gd_scene load_steps=11 format=3 uid="uid://bfwolw1msb8qu"]
 
 [ext_resource type="Texture2D" uid="uid://bnieyiljs28st" path="res://assets/sprites/game_level/spaceship.png" id="1_3r236"]
 [ext_resource type="Script" path="res://scenes/game_level/spaceship/spaceship.gd" id="2_otue1"]
+[ext_resource type="AudioStream" uid="uid://do0wy33f4bsf5" path="res://assets/audio/instructions.mp3" id="3_55nln"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5gr4v"]
 atlas = ExtResource("1_3r236")
@@ -89,6 +90,9 @@ autoplay = "land"
 libraries = {
 "": SubResource("AnimationLibrary_heqny")
 }
+
+[node name="Snd" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_55nln")
 
 [connection signal="child_entered_tree" from="Spaceship" to="Spaceship" method="_on_child_entered_tree"]
 [connection signal="body_entered" from="Spaceship/Area2D" to="Spaceship" method="_on_area_2d_body_entered"]

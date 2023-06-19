@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dytueqrcha0sw"]
+[gd_scene load_steps=26 format=3 uid="uid://dytueqrcha0sw"]
 
 [ext_resource type="Texture2D" uid="uid://7gckmsoipeqn" path="res://assets/sprites/game_level/white_background_mask.png" id="1_6y0yc"]
 [ext_resource type="Script" path="res://scenes/spaceship/spaceship.gd" id="1_h7fnf"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://rre4fiti6ret" path="res://assets/sprites/spaceship/lever-hover-state.png" id="7_6v5qx"]
 [ext_resource type="Texture2D" uid="uid://dnhnt3yqxcg5v" path="res://assets/sprites/game_level/blue_windows.png" id="8_yqaas"]
 [ext_resource type="Texture2D" uid="uid://ds41f5q1h0220" path="res://assets/sprites/spaceship/egg-hatch-spritesheet.png" id="10_k7ryr"]
+[ext_resource type="AudioStream" uid="uid://dhxq813oii0x8" path="res://assets/audio/inside-spaceship.wav" id="14_8ng4y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o64gl"]
 atlas = ExtResource("10_k7ryr")
@@ -180,6 +181,10 @@ autoplay = "spacehatcher_enters"
 libraries = {
 "": SubResource("AnimationLibrary_bqqo1")
 }
+
+[node name="SpaceshipSnd" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_8ng4y")
+autoplay = true
 
 [connection signal="button_down" from="SpaceshipLayout/BtnMarginContainer/Lever" to="SpaceshipLayout" method="_on_lever_button_down"]
 [connection signal="button_up" from="SpaceshipLayout/BtnMarginContainer/Lever" to="SpaceshipLayout" method="_on_lever_button_up"]

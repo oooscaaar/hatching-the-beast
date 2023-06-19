@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://djoicgxpmb0yy"]
+[gd_scene load_steps=22 format=3 uid="uid://djoicgxpmb0yy"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_r51nc"]
 [ext_resource type="Texture2D" uid="uid://cmc4ya3xkr0t1" path="res://assets/sprites/game_level/player_idle_spritesheet.png" id="2_cs5ns"]
 [ext_resource type="Texture2D" uid="uid://dfp1k6cmxtj7a" path="res://assets/sprites/game_level/player_jump_spritesheet.png" id="3_48r2s"]
 [ext_resource type="Texture2D" uid="uid://bcw13cjk1au8n" path="res://assets/sprites/game_level/player_run_spritesheet.png" id="4_0ol7j"]
+[ext_resource type="AudioStream" uid="uid://o0emfjy57mux" path="res://assets/audio/player_jump.wav" id="5_uvtw5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m863r"]
 size = Vector2(19, 29)
@@ -134,3 +135,6 @@ shape = SubResource("RectangleShape2D_m863r")
 [node name="AnimatedPlayer" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_urkum")
 animation = &"jump"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_uvtw5")
