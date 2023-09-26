@@ -12,5 +12,8 @@ In this game, the protagonist carries a large egg in their hands. The more the p
 
 <h2>Game Trailer</h2>
 
-https://github.com/oooscaaar/hatching-the-beast/assets/16454493/e4e8f45b-056e-4051-a8ba-44cf9b23d76a
+
+https://github.com/oooscaaar/hatching-the-beast/assets/16454493/270e5756-a8d3-401a-9792-4c5a54024bdd
+
+
 
